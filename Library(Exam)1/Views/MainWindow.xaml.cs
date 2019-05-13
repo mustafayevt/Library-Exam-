@@ -54,5 +54,10 @@ namespace Library_EXAM_
         {
             UCBorder.Child = new AddBookUC();
         }
+
+        private void Logout(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -14,11 +14,10 @@ namespace Library_EXAM_.ViewModels
     {
         public LoginVM()
         {
-            Users = new List<User>(((App)Application.Current).Users);
+            Users = ((App)Application.Current).Users;
             logInCMD = new LogInCMD(this);
             LogInned = new User();
         }
-        public Visibility Visible { get; set; } = Visibility.Collapsed;
 
         private List<User> users;
 

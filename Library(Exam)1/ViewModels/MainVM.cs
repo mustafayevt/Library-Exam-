@@ -16,6 +16,7 @@ namespace Library_Exam_1.ViewModels
     {
         public MainVM()
         {
+            #region Create objects
             Users = new ObservableCollection<User>(((App)Application.Current).Users);
             Workers = new ObservableCollection<Worker>();
             Branches = new ObservableCollection<Branch>();
@@ -34,6 +35,7 @@ namespace Library_Exam_1.ViewModels
             NewBranchAcceptCMD = new NewBranchAcceptCMD(this);
             NewClientAcceptCMD = new NewClientAcceptCMD(this);
             NewBookAcceptCMD = new NewBookAcceptCMD(this);
+            #endregion
         }
         #region Models
 

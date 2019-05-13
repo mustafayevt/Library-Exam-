@@ -1,4 +1,5 @@
 ﻿using Library_EXAM_.ViewModels;
+using Library_Exam_1;
 using Library_Exam_1.Tools;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Library_EXAM_.Commands
 
         public void Execute(object parameter)
         {
+            loginVM.Users = ((App)Application.Current).Users;
             try
             {
                 loginVM.Password = (parameter as PasswordBox).Password;
@@ -34,7 +36,6 @@ namespace Library_EXAM_.Commands
                 {
                     loginVM.LogInned = loginVM.Users.Single(x => x.Username == loginVM.Username).Clone();
                     (new MainWindow()).ShowDialog();
-                    loginVM.Visible = Visibility.Hidden;
                     return;
                 }
                 else

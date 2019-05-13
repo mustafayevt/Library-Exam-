@@ -26,7 +26,7 @@
                 <Label MouseDown="AddBranchUControl" Content="Add Branch" Style="{StaticResource MenuLabel}" />
                 <Image Source="/Images/branch.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
-            <DockPanel IsEnabled="{Binding CurrentUser.CanCreateCkient}" DockPanel.Dock="Top" Margin="10" MaxHeight="35" Height="35">
+            <DockPanel IsEnabled="{Binding CurrentUser.CanCreateClient}" DockPanel.Dock="Top" Margin="10" MaxHeight="35" Height="35">
                 <Label MouseDown="AddClienthUControl" Content="Add Client" Style="{StaticResource MenuLabel}"/>
                 <Image Source="/Images/client.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
@@ -37,7 +37,7 @@
             <Separator Margin="64,20" DockPanel.Dock="Top"/>
 
             <DockPanel VerticalAlignment="Bottom" Margin="10" MaxHeight="35" Height="35">
-                <Label Content="LOGOUT" Style="{StaticResource MenuLabel}" />
+                <Label Content="LOGOUT" Style="{StaticResource MenuLabel}" MouseDown="Logout"/>
                 <Image Source="/Images/logout.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
         </DockPanel>

@@ -1,4 +1,5 @@
 ﻿using Library_EXAM_.ViewModels;
+using Library_Exam_1.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,18 +33,19 @@ namespace Library_EXAM_.Commands
                 if (loginVM.Users.Single(x => x.Username == loginVM.Username).Password == loginVM.Password)
                 {
                     loginVM.LogInned = loginVM.Users.Single(x => x.Username == loginVM.Username).Clone();
-                    (new MainWindow()).Show();
+                    (new MainWindow()).ShowDialog();
+                    loginVM.Visible = Visibility.Hidden;
                     return;
                 }
                 else
                 {
-                    MessageBox.Show("Password is Incorrect!");
+                    (new CustomMessageBox()).Show("Password is Incorrect!");
                     return;
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Username Does Not Exists");
+                (new CustomMessageBox()).Show("Username Does Not Exists");
             }
         }
     }

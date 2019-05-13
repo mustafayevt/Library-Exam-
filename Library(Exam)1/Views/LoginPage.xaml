@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library_Exam_1.Views"
         mc:Ignorable="d"
-        Title="LoginPage" Height="450" Width="500" Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="LoginPage" Height="450" Width="500" Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Visibility="{Binding Visible}">
 
     <Border CornerRadius="12" BorderThickness="20" BorderBrush="#FF24253A" Margin="25">
         <Border.Effect>

@@ -18,6 +18,8 @@ namespace Library_EXAM_.ViewModels
             logInCMD = new LogInCMD(this);
             LogInned = new User();
         }
+        public Visibility Visible { get; set; } = Visibility.Collapsed;
+
         private List<User> users;
 
         public List<User> Users

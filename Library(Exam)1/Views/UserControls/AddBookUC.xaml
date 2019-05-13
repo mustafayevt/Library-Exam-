@@ -1,0 +1,157 @@
+﻿<UserControl x:Class="Library_Exam_1.Views.UserControls.AddBookUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Library_Exam_1.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="OnChecking">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="25"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="OnUnchecking">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                    <SplineThicknessKeyFrame KeyTime="00:00:00.3000000" Value="1,1,1,1"/>
+                                </ThicknessAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+
+                        <DockPanel x:Name="dockPanel">
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}" RecognizesAccessKey="True" VerticalAlignment="Center"/>
+                            <Grid Margin="5,5,0,5" Width="50" Background="Transparent">
+                                <TextBlock Text="ON" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Century Gothic" FontSize="12" HorizontalAlignment="Right" Margin="0,0,3,0"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="2,0,0,0" FontSize="12" FontWeight="Bold" FontFamily="Century Gothic" Text="OFF" TextWrapping="Wrap"/>
+                                <Border HorizontalAlignment="Left" x:Name="slider" Width="23" BorderThickness="0" CornerRadius="3,3,3,3" RenderTransformOrigin="0.5,0.5" Margin="1,1,1,1">
+                                    <Border.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                            <SkewTransform AngleX="0" AngleY="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform X="0" Y="0"/>
+                                        </TransformGroup>
+                                    </Border.RenderTransform>
+                                    <Border.BorderBrush>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                            <GradientStop Color="#FF4490FF" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.BorderBrush>
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="Orange" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
+                        </DockPanel>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnUnchecking}" x:Name="OnUnchecking_BeginStoryboard"/>
+                                </Trigger.ExitActions>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnChecking}" x:Name="OnChecking_BeginStoryboard"/>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="#FF24253A">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource UCTitle}" Margin="10,0" Content="New User"/>
+        <Separator VerticalAlignment="Bottom" Margin="30,0"/>
+
+
+        <UniformGrid Columns="2" Rows="2" Grid.Row="1">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Name" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
+                <TextBox   Margin="30,0,0,0" BorderThickness="0" x:Name="NameTxtbx" Text="{Binding NewBook.Name,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <Separator BorderBrush="#60444444" Margin="30,0"/>
+                <TextBlock Text="Author" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
+                <TextBox   Margin="30,0,0,0" BorderThickness="0" x:Name="UsernameTxtbx" Text="{Binding NewBook.Author,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <Separator BorderBrush="#60444444" Margin="30,0"/>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Purchase Price" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
+                    <TextBox x:Name="PurchasePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.PurchasePrice,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                    <Separator BorderBrush="#60444444" Margin="30,0"/>
+                <TextBlock Text="Sale Price" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
+                <TextBox x:Name="SalePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.SalePrice,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <Separator BorderBrush="#60444444" Margin="30,0"/>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top">
+                <TextBlock Text="Quantity" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
+                <TextBox x:Name="QuantityTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.Quantity,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <Separator BorderBrush="#60444444" Margin="30,0"/>
+                <TextBlock Text="Branch" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
+                <ComboBox x:Name="BranchCmbx" Height="20" Margin="30,00,30,10" DisplayMemberPath="Name" ItemsSource="{Binding Branches,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding NewBook.Branch}">
+                </ComboBox>
+                <Separator BorderBrush="#60444444" Margin="30,0"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button Margin="30" Height="40" Width="120"  BorderThickness="0" BorderBrush="#60444444" IsEnabled="True" Background="#60444444">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border VerticalAlignment="Stretch" BorderThickness="5" CornerRadius="10" BorderBrush="#FF333337" Height="auto">
+                                <Button Command="{Binding NewBookAcceptCMD}"  FontSize="22" BorderThickness="0" Background="#FF333337" Foreground="#FFC2C2C2" FontFamily="Century Gothic" FontWeight="Bold" Content="Accept">
+
+                                    <Button.Style>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text.Length, ElementName=NameTxtbx, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Text.Length, ElementName=AuthorTxtbx, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Text.Length, ElementName=PurchasePriceTxtbx, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Text.Length, ElementName=SaleTxtbx, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Text.Length, ElementName=QuantityTxtbx, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding SelectedIndex, ElementName=BranchCmbx, UpdateSourceTrigger=PropertyChanged}" Value="-1">
+                                                    <Setter Property="IsEnabled" Value="False"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+            </StackPanel>
+        </UniformGrid>
+    </Grid>
+</UserControl>

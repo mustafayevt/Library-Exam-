@@ -44,5 +44,15 @@ namespace Library_EXAM_
         {
             UCBorder.Child = new AddBranchUC();
         }
+
+        private void AddClienthUControl(object sender, MouseButtonEventArgs e)
+        {
+            UCBorder.Child = new AddClientUC();
+        }
+
+        private void AddBookUControl(object sender, MouseButtonEventArgs e)
+        {
+            UCBorder.Child = new AddBookUC();
+        }
     }
 }

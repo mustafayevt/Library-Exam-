@@ -60,13 +60,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\LogInCMD.cs" />
+    <Compile Include="Commands\NewBookAcceptCMD.cs" />
     <Compile Include="Commands\NewBranchAcceptCMD.cs" />
+    <Compile Include="Commands\NewClientAcceptCMD.cs" />
     <Compile Include="Commands\NewUserAcceptCMD.cs" />
     <Compile Include="Commands\NewWorkerAcceptCMD.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\Branch.cs" />
     <Compile Include="Entities\Client.cs" />
-    <Compile Include="Entities\Solded.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Worker.cs" />
     <Compile Include="Tools\CustomMessageBox.xaml.cs">
@@ -81,8 +82,14 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\AddBookUC.xaml.cs">
+      <DependentUpon>AddBookUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\AddBranchUC.xaml.cs">
       <DependentUpon>AddBranchUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\AddClientUC.xaml.cs">
+      <DependentUpon>AddClientUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\AddUserUC.xaml.cs">
       <DependentUpon>AddUserUC.xaml</DependentUpon>
@@ -130,7 +137,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\UserControls\AddBookUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\AddBranchUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\AddClientUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

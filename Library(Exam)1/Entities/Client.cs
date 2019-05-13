@@ -30,7 +30,7 @@ namespace Library.Entities
         }
         public Client()
         {
-
+            JoinDate = DateTime.Now;
         }
 
         public Client Clone()

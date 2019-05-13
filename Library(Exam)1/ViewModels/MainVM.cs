@@ -19,15 +19,21 @@ namespace Library_Exam_1.ViewModels
             Users = new ObservableCollection<User>(((App)Application.Current).Users);
             Workers = new ObservableCollection<Worker>();
             Branches = new ObservableCollection<Branch>();
+            Books = new ObservableCollection<Book>();
+            Clients = new ObservableCollection<Client>();
 
             CurrentUser = ((App)Application.Current).CurrentUser;
             NewUser = new User();
             NewWorker = new Worker();
             NewBranch = new Branch();
+            NewBook = new Book();
+            NewClient = new Client();
 
             NewUserAcceptCMD = new NewUserAcceptCMD(this);
             NewWorkerAcceptCMD = new NewWorkerAcceptCMD(this);
             NewBranchAcceptCMD = new NewBranchAcceptCMD(this);
+            NewClientAcceptCMD = new NewClientAcceptCMD(this);
+            NewBookAcceptCMD = new NewBookAcceptCMD(this);
         }
         #region Models
 
@@ -64,6 +70,28 @@ namespace Library_Exam_1.ViewModels
 
         public Branch NewBranch { get; set; }
         #endregion
+        #region AddBook
+        private ObservableCollection<Book> books;
+
+        public ObservableCollection<Book> Books
+        {
+            get { return books; }
+            set { books = value; OnPropertyChanged(nameof(Books)); }
+        }
+
+        public Book NewBook { get; set; }
+        #endregion
+        #region AddClient
+        private ObservableCollection<Client> clients;
+
+        public ObservableCollection<Client> Clients
+        {
+            get { return clients; }
+            set { clients = value; OnPropertyChanged(nameof(Clients)); }
+        }
+
+        public Client NewClient { get; set; }
+        #endregion
         #endregion
 
 
@@ -71,8 +99,9 @@ namespace Library_Exam_1.ViewModels
         #region Commands
         public NewUserAcceptCMD NewUserAcceptCMD { get; set; }
         public NewWorkerAcceptCMD NewWorkerAcceptCMD { get; set; }
-
         public NewBranchAcceptCMD NewBranchAcceptCMD { get; set; }
+        public NewClientAcceptCMD NewClientAcceptCMD { get; set; }
+        public NewBookAcceptCMD NewBookAcceptCMD { get; set; }
         #endregion
 
 

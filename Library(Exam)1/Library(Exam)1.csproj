@@ -60,6 +60,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\LogInCMD.cs" />
+    <Compile Include="Commands\NewBranchAcceptCMD.cs" />
     <Compile Include="Commands\NewUserAcceptCMD.cs" />
     <Compile Include="Commands\NewWorkerAcceptCMD.cs" />
     <Compile Include="Entities\Book.cs" />
@@ -79,6 +80,9 @@
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\AddBranchUC.xaml.cs">
+      <DependentUpon>AddBranchUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\AddUserUC.xaml.cs">
       <DependentUpon>AddUserUC.xaml</DependentUpon>
@@ -125,6 +129,10 @@
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\AddBranchUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\AddUserUC.xaml">
       <SubType>Designer</SubType>

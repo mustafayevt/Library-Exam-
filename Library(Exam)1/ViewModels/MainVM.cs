@@ -18,13 +18,16 @@ namespace Library_Exam_1.ViewModels
         {
             Users = new ObservableCollection<User>(((App)Application.Current).Users);
             Workers = new ObservableCollection<Worker>();
+            Branches = new ObservableCollection<Branch>();
 
             CurrentUser = ((App)Application.Current).CurrentUser;
             NewUser = new User();
             NewWorker = new Worker();
+            NewBranch = new Branch();
 
             NewUserAcceptCMD = new NewUserAcceptCMD(this);
             NewWorkerAcceptCMD = new NewWorkerAcceptCMD(this);
+            NewBranchAcceptCMD = new NewBranchAcceptCMD(this);
         }
         #region Models
 
@@ -50,7 +53,17 @@ namespace Library_Exam_1.ViewModels
         public Worker NewWorker { get; set; }
 
         #endregion
+        #region AddBranch
+        private ObservableCollection<Branch> branches;
 
+        public ObservableCollection<Branch> Branches
+        {
+            get { return branches; }
+            set { branches = value; OnPropertyChanged(nameof(Branches)); }
+        }
+
+        public Branch NewBranch { get; set; }
+        #endregion
         #endregion
 
 
@@ -58,6 +71,8 @@ namespace Library_Exam_1.ViewModels
         #region Commands
         public NewUserAcceptCMD NewUserAcceptCMD { get; set; }
         public NewWorkerAcceptCMD NewWorkerAcceptCMD { get; set; }
+
+        public NewBranchAcceptCMD NewBranchAcceptCMD { get; set; }
         #endregion
 
 

@@ -39,5 +39,10 @@ namespace Library_EXAM_
         {
             UCBorder.Child = new AddWorkerUC();
         }
+
+        private void AddBranchUControl(object sender, MouseButtonEventArgs e)
+        {
+            UCBorder.Child = new AddBranchUC();
+        }
     }
 }

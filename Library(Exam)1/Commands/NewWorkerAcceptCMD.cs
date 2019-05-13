@@ -1,4 +1,5 @@
-﻿using Library_Exam_1.ViewModels;
+﻿using Library_Exam_1.Tools;
+using Library_Exam_1.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace Library_Exam_1.Commands
         public void Execute(object parameter)
         {
             mainVM.Workers.Add(mainVM.NewWorker);
+            (new CustomMessageBox()).Show("Worker Added!");
         }
     }
 }

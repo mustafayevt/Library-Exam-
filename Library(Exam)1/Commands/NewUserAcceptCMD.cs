@@ -30,6 +30,7 @@ namespace Library_Exam_1.Commands
             {
                 mainVM.Users.Add(mainVM.NewUser);
                 ((App)Application.Current).Users = new List<Library_EXAM_.Entities.User>(mainVM.Users);
+                (new CustomMessageBox()).Show("User Added!");
             }
             else
             {

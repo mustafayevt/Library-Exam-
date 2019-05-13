@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="CustomMessageBox" Height="117.309" Width="419.783" WindowStyle="None" WindowStartupLocation="CenterOwner">
+        Title="CustomMessageBox" Height="123.309" Width="565.783" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <StackPanel Background="#FF24253A">
         <Label Style="{StaticResource UCTitle}" Name="MessageLbl" HorizontalAlignment="Center" FontSize="25" Margin="10"/>
         <Separator  Margin="30,0"/>

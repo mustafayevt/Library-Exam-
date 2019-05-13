@@ -1,0 +1,45 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_EXAM_"
+        xmlns:UserControls="clr-namespace:Library_Exam_1.Views.UserControls"
+        x:Class="Library_EXAM_.MainWindow"
+        mc:Ignorable="d"
+        Title="LIBLARI" Height="700" Width="1000" WindowStartupLocation="CenterScreen" MinHeight="700" MinWidth="1000" >
+    <Grid>
+        <Border x:Name="UCBorder" Padding="15" Margin="50,0,0,0" Background="Orange">
+            <Image Source="/Images/main.jpg" Stretch="UniformToFill"/>
+
+        </Border>
+        <DockPanel Style="{StaticResource SlideMenu}" HorizontalAlignment="Left" Width="300" Background="#FF24253A">
+            <DockPanel IsEnabled="{Binding CurrentUser.CanCreateUser}" DockPanel.Dock="Top" Margin="10" MaxHeight="35" Height="35">
+                <Label MouseDown="AddUserUControl" Content="Add User" Style="{StaticResource MenuLabel}"/>
+                <Image Source="/Images/user.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
+            </DockPanel>
+            <DockPanel  DockPanel.Dock="Top" Margin="10" MaxHeight="35" Height="35">
+                <Label MouseDown="AddWorkerUControl" Content="Add Worker" Style="{StaticResource MenuLabel}" />
+                <Image Source="/Images/worker.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
+            </DockPanel>
+            <DockPanel IsEnabled="{Binding CurrentUser.CanCreateBranch}" DockPanel.Dock="Top" Margin="10" MaxHeight="35" Height="35">
+                <Label Content="Add Branch" Style="{StaticResource MenuLabel}" />
+                <Image Source="/Images/branch.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
+            </DockPanel>
+            <DockPanel IsEnabled="{Binding CurrentUser.CanCreateCkient}" DockPanel.Dock="Top" Margin="10" MaxHeight="35" Height="35">
+                <Label Content="Add Client" Style="{StaticResource MenuLabel}"/>
+                <Image Source="/Images/client.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
+            </DockPanel>
+            <DockPanel IsEnabled="{Binding CurrentUser.CanCreateBook}" DockPanel.Dock="Top" Margin="10" MaxHeight="35" Height="35">
+                <Label Content="Add Book" Style="{StaticResource MenuLabel}" />
+                <Image Source="/Images/book.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
+            </DockPanel>
+            <Separator Margin="64,20" DockPanel.Dock="Top"/>
+
+            <DockPanel VerticalAlignment="Bottom" Margin="10" MaxHeight="35" Height="35">
+                <Label Content="LOGOUT" Style="{StaticResource MenuLabel}" />
+                <Image Source="/Images/logout.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

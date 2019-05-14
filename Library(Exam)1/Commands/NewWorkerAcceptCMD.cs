@@ -25,7 +25,7 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            mainVM.Workers.Add(mainVM.NewWorker);
+            mainVM.Workers.Add(mainVM.NewWorker.Clone());
             (new CustomMessageBox()).Show("Worker Added!");
         }
     }

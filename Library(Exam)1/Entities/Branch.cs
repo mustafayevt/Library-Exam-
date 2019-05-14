@@ -8,7 +8,7 @@ namespace Library.Entities
 {
     public class Branch
     {
-        public int Id { get; set; }
+        public int Id { get;private set; }
         public string Name { get; set; }
         public string Adress { get; set; }
         public Branch(int id,int no, string name, string adress,bool isClone)
@@ -33,6 +33,6 @@ namespace Library.Entities
         {
             return new Branch(Id,No, Name, Adress,true);
         }
-        public int No { get; set; }
+        public int No { get;private set; }
     }
 }

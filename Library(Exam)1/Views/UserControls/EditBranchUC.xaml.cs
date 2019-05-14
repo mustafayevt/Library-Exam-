@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace Library_Exam_1.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for AddBookUC.xaml
+    /// Interaction logic for EditBranchUC.xaml
     /// </summary>
-    public partial class AddBookUC : UserControl
+    public partial class EditBranchUC : UserControl
     {
-        public AddBookUC()
+        public EditBranchUC()
         {
             InitializeComponent();
         }
-
     }
 }

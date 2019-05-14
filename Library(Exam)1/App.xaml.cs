@@ -18,7 +18,7 @@ namespace Library_Exam_1
         {
             Users = new List<User>()
             {
-                new User(1,"admin","admin",true,true,true,true,true,true)
+                new User("admin","admin",true,true,true,true,true,true)
             };
         }
         public User CurrentUser { get; set; }

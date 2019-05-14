@@ -64,5 +64,24 @@
             <Setter Property="TextOptions.TextRenderingMode" Value="Auto"/>
         </Style>
 
+        <Style TargetType="{x:Type DataGridRow}">
+            <Setter Property="Foreground" Value="#FFB3B3B3"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="BorderBrush" Value="Red"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#FF262626"/>
+                </Trigger>
+
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#FF383838"/>
+                </Trigger>
+
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#FF333333"/>
+                </Trigger>
+
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

@@ -32,7 +32,7 @@ namespace Library.Entities
         {
 
         }
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public string Name { get; set; }
         public string Author { get; set; }
         public string PurchasePrice { get; set; }
@@ -41,6 +41,6 @@ namespace Library.Entities
         public Branch Branch { get; set; }
 
         static int NoGenerator = 0;
-        public int No { get; set; }
+        public int No { get; private set; }
     }
 }

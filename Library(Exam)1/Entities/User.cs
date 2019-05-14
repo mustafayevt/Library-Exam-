@@ -10,12 +10,11 @@ namespace Library_EXAM_.Entities
     {
         public User()
         {
-
+            
         }
 
-        public User(int id, string username, string password, bool canCreateBook, bool canCreateUser, bool canCreateBranch, bool canCreateClient, bool canRent,bool isClone)
+        public User(string username, string password, bool canCreateBook, bool canCreateUser, bool canCreateBranch, bool canCreateClient, bool canRent, bool isClone)
         {
-            Id = id;
             Username = username;
             Password = password;
             CanCreateBook = canCreateBook;
@@ -23,18 +22,15 @@ namespace Library_EXAM_.Entities
             CanCreateBranch = canCreateBranch;
             CanCreateClient = canCreateClient;
             CanRent = canRent;
-            if (isClone)
-            {
-                No = ++NoGenerator;
-                Id = NoGenerator;
-            }
+            No = ++NoGenerator;
+            Id = NoGenerator;
         }
 
         public User Clone()
         {
-            return new User(Id, Username,Password,CanCreateBook,CanCreateUser,CanCreateBranch,CanCreateClient,CanRent, true);
+            return new User(Username, Password, CanCreateBook, CanCreateUser, CanCreateBranch, CanCreateClient, CanRent, true);
         }
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public bool CanCreateBook { get; set; }
@@ -44,6 +40,6 @@ namespace Library_EXAM_.Entities
         public bool CanRent { get; set; }
 
         static int NoGenerator = 0;
-        public int No { get; set; }
+        public int No { get; private set; }
     }
 }

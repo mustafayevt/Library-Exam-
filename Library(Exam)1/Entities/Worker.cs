@@ -39,6 +39,6 @@ namespace Library.Entities
         public string Salary { get; set; }
 
         static int NoGenerator = 0;
-        public int No { get; set; }
+        public int No { get;private set; }
     }
 }

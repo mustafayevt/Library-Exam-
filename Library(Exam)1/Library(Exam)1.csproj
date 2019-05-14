@@ -70,6 +70,7 @@
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Worker.cs" />
+    <Compile Include="Models\SoldedBook.cs" />
     <Compile Include="Tools\CustomMessageBox.xaml.cs">
       <DependentUpon>CustomMessageBox.xaml</DependentUpon>
     </Compile>
@@ -96,6 +97,24 @@
     </Compile>
     <Compile Include="Views\UserControls\AddWorkerUC.xaml.cs">
       <DependentUpon>AddWorkerUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\EditBookUC.xaml.cs">
+      <DependentUpon>EditBookUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\EditBranchUC.xaml.cs">
+      <DependentUpon>EditBranchUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\EditClientUC.xaml.cs">
+      <DependentUpon>EditClientUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\EditUserUC.xaml.cs">
+      <DependentUpon>EditUserUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\EditWorkerUC.xaml.cs">
+      <DependentUpon>EditWorkerUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\SellBookUC.xaml.cs">
+      <DependentUpon>SellBookUC.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +176,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\UserControls\EditBookUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\EditBranchUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\EditClientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\EditUserUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\EditWorkerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\SellBookUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\client.png" />
@@ -172,6 +215,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BookSelling.png" />
+    <Resource Include="Images\RentReport.png" />
+    <Resource Include="Images\SalesReport.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

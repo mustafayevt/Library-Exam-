@@ -24,7 +24,7 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            mainVM.Branches.Add(mainVM.NewBranch);
+            mainVM.Branches.Add(mainVM.NewBranch.Clone());
             (new CustomMessageBox()).Show("Branch Added!");
         }
     }

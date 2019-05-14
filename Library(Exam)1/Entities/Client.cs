@@ -8,7 +8,7 @@ namespace Library.Entities
 {
     public class Client
     {
-        public int Id { get; set; }
+        public int Id { get;private set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Phone { get; set; }
@@ -40,6 +40,6 @@ namespace Library.Entities
 
         static int NoGenerator = 0;
 
-        public int No { get; set; }
+        public int No { get; private set; }
     }
 }

@@ -24,7 +24,7 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            mainVM.Books.Add(mainVM.NewBook);
+            mainVM.Books.Add(mainVM.NewBook.Clone());
             (new CustomMessageBox()).Show("Book Added!");
         }
     }

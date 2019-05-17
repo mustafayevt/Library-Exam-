@@ -2,6 +2,7 @@
 using Library_EXAM_.Entities;
 using Library_EXAM_.ViewModels;
 using Library_Exam_1.Commands;
+using Library_Exam_1.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,6 +23,8 @@ namespace Library_Exam_1.ViewModels
             Branches = new ObservableCollection<Branch>();
             Books = new ObservableCollection<Book>();
             Clients = new ObservableCollection<Client>();
+            SoldedBooks = new ObservableCollection<SoldedBook>();
+            RentedBooks = new ObservableCollection<SoldedBook>();
 
             CurrentUser = ((App)Application.Current).CurrentUser;
             NewUser = new User();
@@ -29,12 +32,19 @@ namespace Library_Exam_1.ViewModels
             NewBranch = new Branch();
             NewBook = new Book();
             NewClient = new Client();
+            SelectedClient = new Client();
+            SelectedBook = new Book();
 
             NewUserAcceptCMD = new NewUserAcceptCMD(this);
             NewWorkerAcceptCMD = new NewWorkerAcceptCMD(this);
             NewBranchAcceptCMD = new NewBranchAcceptCMD(this);
             NewClientAcceptCMD = new NewClientAcceptCMD(this);
             NewBookAcceptCMD = new NewBookAcceptCMD(this);
+            SellingOperationsCMD = new SellingOperationsCMD(this);
+
+
+            books.Add(new Book() { Name = "Book1" });
+            clients.Add(new Client() { Name = "Client1" });
             #endregion
         }
         #region Models
@@ -94,6 +104,28 @@ namespace Library_Exam_1.ViewModels
 
         public Client NewClient { get; set; }
         #endregion
+        #region SellBook
+        public Client SelectedClient { get; set;}
+        public Book SelectedBook { get; set; }
+
+        private ObservableCollection<SoldedBook> soldedBooks;
+
+        public ObservableCollection<SoldedBook> SoldedBooks
+        {
+            get { return soldedBooks; }
+            set { soldedBooks = value; OnPropertyChanged(nameof(SoldedBooks)); }
+        }
+
+        private ObservableCollection<SoldedBook> rentedBooks;
+
+        public ObservableCollection<SoldedBook> RentedBooks
+        {
+            get { return rentedBooks; }
+            set { rentedBooks = value; OnPropertyChanged(nameof(RentedBooks)); }
+        }
+
+
+
         #endregion
 
 
@@ -104,8 +136,10 @@ namespace Library_Exam_1.ViewModels
         public NewBranchAcceptCMD NewBranchAcceptCMD { get; set; }
         public NewClientAcceptCMD NewClientAcceptCMD { get; set; }
         public NewBookAcceptCMD NewBookAcceptCMD { get; set; }
+        public SellingOperationsCMD SellingOperationsCMD { get; set; }
         #endregion
 
+        #endregion
 
     }
 }

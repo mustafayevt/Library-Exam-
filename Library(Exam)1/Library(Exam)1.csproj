@@ -65,6 +65,7 @@
     <Compile Include="Commands\NewClientAcceptCMD.cs" />
     <Compile Include="Commands\NewUserAcceptCMD.cs" />
     <Compile Include="Commands\NewWorkerAcceptCMD.cs" />
+    <Compile Include="Commands\SellingOperationsCMD.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\Branch.cs" />
     <Compile Include="Entities\Client.cs" />
@@ -112,6 +113,12 @@
     </Compile>
     <Compile Include="Views\UserControls\EditWorkerUC.xaml.cs">
       <DependentUpon>EditWorkerUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\RentsReportUC.xaml.cs">
+      <DependentUpon>RentsReportUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\SalesReportUC.xaml.cs">
+      <DependentUpon>SalesReportUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\SellBookUC.xaml.cs">
       <DependentUpon>SellBookUC.xaml</DependentUpon>
@@ -193,6 +200,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\EditWorkerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\RentsReportUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\SalesReportUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

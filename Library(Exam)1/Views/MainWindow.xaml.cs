@@ -85,9 +85,22 @@ namespace Library_EXAM_
             UCBorder.Child = new SellBookUC();
         }
 
+        private void SalesReportUControl(object sender, MouseButtonEventArgs e)
+        {
+            UCBorder.Child = new SalesReportUC();
+        }
+        private void RentsReportUcontrol(object sender, MouseButtonEventArgs e)
+        {
+            UCBorder.Child = new RentsReportUC();
+        }
+
+
+
+
         private void Logout(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }
+
     }
 }

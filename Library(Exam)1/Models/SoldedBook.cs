@@ -10,8 +10,22 @@ namespace Library_Exam_1.Models
 {
     class SoldedBook
     {
+        public SoldedBook()
+        {
+
+        }
+
+        public SoldedBook(Book book, Client client, User user, DateTime dateTime)
+        {
+            Book = book;
+            Client = client;
+            User = user;
+            DateTime = dateTime;
+        }
+
         public Book Book { get; set; }
         public Client Client { get; set; }
-        public User MyProperty { get; set; }
+        public User User { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

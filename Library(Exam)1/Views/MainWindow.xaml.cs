@@ -93,6 +93,8 @@ namespace Library_EXAM_
         {
             UCBorder.Child = new RentsReportUC();
         }
+        
+
 
 
 
@@ -101,6 +103,5 @@ namespace Library_EXAM_
         {
             this.Close();
         }
-
     }
 }

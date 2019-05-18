@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Əlav. Et</value>
   </data>
   <data name="Book" xml:space="preserve">
-    <value>Book</value>
+    <value>Kitab</value>
   </data>
   <data name="Branch" xml:space="preserve">
-    <value>Branch</value>
+    <value>Filial</value>
   </data>
   <data name="Client" xml:space="preserve">
-    <value>Client</value>
+    <value>Müşt.</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Düzl. Et</value>
   </data>
   <data name="LOGOUT" xml:space="preserve">
-    <value>LOGOUT</value>
+    <value>Çıxış</value>
   </data>
   <data name="Rents" xml:space="preserve">
-    <value>Rents</value>
+    <value>İcr.</value>
   </data>
   <data name="Reports" xml:space="preserve">
-    <value>Reports</value>
+    <value>Hesb.</value>
   </data>
   <data name="Sales" xml:space="preserve">
-    <value>Sales</value>
+    <value>Satış</value>
   </data>
   <data name="Sell / Rent Book" xml:space="preserve">
-    <value>Sell / Rent Book</value>
+    <value>Sat / İcr. Ver Kitab</value>
   </data>
   <data name="User" xml:space="preserve">
-    <value>User</value>
+    <value>İstif.</value>
   </data>
   <data name="Worker" xml:space="preserve">
-    <value>Worker</value>
+    <value>İşçi</value>
   </data>
 </root>

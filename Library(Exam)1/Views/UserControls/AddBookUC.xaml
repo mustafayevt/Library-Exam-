@@ -98,7 +98,7 @@
 
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Purchase Price" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                    <TextBox x:Name="PurchasePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.PurchasePrice,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <TextBox  x:Name="PurchasePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.PurchasePrice,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
                     <Separator BorderBrush="#60444444" Margin="30,0"/>
                 <TextBlock Text="Sale Price" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
                 <TextBox x:Name="SalePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.SalePrice,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>

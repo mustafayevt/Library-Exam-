@@ -6,8 +6,13 @@
              xmlns:local="clr-namespace:Library_Exam_1.Views.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UniformGrid Rows="2">
-        <DataGrid Name="ClientsDataGrid" Background="#FF24253A" ColumnWidth="*" SelectionMode="Single" IsReadOnly="True" CanUserAddRows="False" CanUserReorderColumns="False" ItemsSource="{Binding Clients,Mode=OneWay}" SelectedItem="{Binding SelectedClient}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid FontSize="20" Name="ClientsDataGrid" Background="#FF24253A" ColumnWidth="*" SelectionMode="Single" IsReadOnly="True" CanUserAddRows="False" CanUserReorderColumns="False" ItemsSource="{Binding Clients,Mode=OneWay}" SelectedItem="{Binding SelectedClient}">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Orange" />
@@ -15,9 +20,9 @@
             </DataGrid.Resources>
         </DataGrid>
         
-        <DataGrid Name="BooksDataGrid" Background="#FF24253A" ColumnWidth="*" SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Books,Mode=OneWay}" SelectedItem="{Binding SelectedBook}">
+        <DataGrid FontSize="17" Grid.Row="1" Name="BooksDataGrid" Background="#FF24253A" ColumnWidth="*" SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding Books,Mode=OneWay}" SelectedItem="{Binding SelectedBook}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="No" Binding="{Binding No}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Author" Binding="{Binding Author}"/>
                 <DataGridTextColumn Header="Purchase Price" Binding="{Binding PurchasePrice}"/>
@@ -31,42 +36,55 @@
                     <Setter Property="Background" Value="Orange" />
                 </Style>
             </DataGrid.Resources>
-
-            <DataGrid.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Sell" Command="{Binding SellingOperationsCMD}" CommandParameter="1">
-                        <MenuItem.Style>
-                            <Style TargetType="MenuItem">
-                                <Setter Property="IsEnabled" Value="True" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=SelectedItem,Path=ClientsDataGrid,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
-                                        <Setter Property="IsEnabled" Value="False"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding ElementName=SelectedItem,Path=BooksDataGrid,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
-                                        <Setter Property="IsEnabled" Value="False"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </MenuItem.Style>
-                    </MenuItem>
-                    <MenuItem Header="Rent" Command="{Binding SellingOperationsCMD}" CommandParameter="2">
-                        <MenuItem.Style>
-                            <Style TargetType="MenuItem">
-                                <Setter Property="IsEnabled" Value="True" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=SelectedItem,Path=ClientsDataGrid,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
-                                        <Setter Property="IsEnabled" Value="False"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding ElementName=SelectedItem,Path=BooksDataGrid,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
-                                        <Setter Property="IsEnabled" Value="False"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </MenuItem.Style>
-                    </MenuItem>
-                </ContextMenu>
-            </DataGrid.ContextMenu>
         </DataGrid>
+        <DockPanel HorizontalAlignment="Right" Grid.Row="2">
+            <Button Height="40" Width="120"  BorderThickness="0" BorderBrush="#60444444" IsEnabled="True" Background="#60444444">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border VerticalAlignment="Stretch" BorderThickness="5" CornerRadius="10" BorderBrush="#FF333337" Height="auto">
+                            <Button DockPanel.Dock="Right" Command="{Binding SellingOperationsCMD}" CommandParameter="1" FontSize="22" BorderThickness="0" Background="#FF333337" Foreground="#FFC2C2C2" FontFamily="Century Gothic" FontWeight="Bold" Content="Sell">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=ClientsDataGrid,Path=SelectedItem,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ElementName=BooksDataGrid,Path=SelectedItem,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Height="40" Width="120"  BorderThickness="0" BorderBrush="#60444444" IsEnabled="True" Background="#60444444">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border VerticalAlignment="Stretch" BorderThickness="5" CornerRadius="10" BorderBrush="#FF333337" Height="auto">
+                            <Button DockPanel.Dock="Right" Command="{Binding SellingOperationsCMD}" CommandParameter="2" FontSize="22" BorderThickness="0" Background="#FF333337" Foreground="#FFC2C2C2" FontFamily="Century Gothic" FontWeight="Bold" Content="Rent">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=ClientsDataGrid,Path=SelectedItem,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ElementName=BooksDataGrid,Path=SelectedItem,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
-    </UniformGrid>
+        </DockPanel>
+    </Grid>
 </UserControl>

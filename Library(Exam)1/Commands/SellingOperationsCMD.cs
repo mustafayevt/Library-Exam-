@@ -1,4 +1,5 @@
-﻿using Library_Exam_1.ViewModels;
+﻿using Library_Exam_1.Tools;
+using Library_Exam_1.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,15 +25,20 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
+            if(mainVM.SelectedBook==null || mainVM.SelectedClient == null)
+            {
+                (new CustomMessageBox()).Show("Something went wrong. Make sure to select Book and Client");
+                return;
+            }
             int.TryParse((string)parameter, out int param);
 
             if (param == 1)
             {
-                mainVM.SoldedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Clone(), mainVM.SelectedClient.Clone(), mainVM.CurrentUser.Clone(),DateTime.Now));
+                mainVM.SoldedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Clone(), mainVM.SelectedClient.Clone(), mainVM.CurrentUser.Clone(), DateTime.Now));
             }
             else if (param == 2)
             {
-                mainVM.RentedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Clone(), mainVM.SelectedClient.Clone(), mainVM.CurrentUser.Clone(),DateTime.Now));
+                mainVM.RentedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Clone(), mainVM.SelectedClient.Clone(), mainVM.CurrentUser.Clone(), DateTime.Now));
             }
         }
     }

@@ -12,7 +12,7 @@
             <RowDefinition Height="5*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid FontSize="20" Name="ClientsDataGrid" Background="#FF24253A" ColumnWidth="*" SelectionMode="Single" IsReadOnly="True" CanUserAddRows="False" CanUserReorderColumns="False" ItemsSource="{Binding Clients,Mode=OneWay}" SelectedItem="{Binding SelectedClient}">
+        <DataGrid FontSize="17" Name="ClientsDataGrid" Background="#FF24253A" ColumnWidth="*" SelectionMode="Single" IsReadOnly="True" CanUserAddRows="False" CanUserReorderColumns="False" ItemsSource="{Binding Clients,Mode=OneWay}" SelectedItem="{Binding SelectedClient}">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Orange" />

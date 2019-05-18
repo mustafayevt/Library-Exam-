@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid  Background="#FF24253A" ColumnWidth="*" SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding SoldedBooks}" SelectedItem="{Binding SelectedBook}">
+        <DataGrid FontSize="17" Background="#FF24253A" ColumnWidth="*" SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding SoldedBooks}" SelectedItem="{Binding SelectedBook}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Book Name" Binding="{Binding Book.Name}"/>
                 <DataGridTextColumn Header="Client" Binding="{Binding Client.Name}"/>

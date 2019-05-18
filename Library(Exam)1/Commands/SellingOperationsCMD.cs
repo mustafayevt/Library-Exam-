@@ -25,11 +25,6 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            if(mainVM.SelectedBook==null || mainVM.SelectedClient == null)
-            {
-                (new CustomMessageBox()).Show("Something went wrong. Make sure to select Book and Client");
-                return;
-            }
             int.TryParse((string)parameter, out int param);
 
             if (param == 1)

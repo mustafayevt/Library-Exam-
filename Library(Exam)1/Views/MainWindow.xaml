@@ -63,8 +63,6 @@
                 <Image Source="/Images/RentReport.png" Stretch="UniformToFill" Margin="20,0" Height="30" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
 
-
-
             <DockPanel VerticalAlignment="Bottom" Margin="10" MaxHeight="35" Height="35">
                 <Label Content="{x:Static p:Resources.LOGOUT}" Style="{StaticResource MenuLabel}" MouseDown="Logout"/>
                 <Image Source="/Images/logout.png" Stretch="UniformToFill" Height="30" Width="30" HorizontalAlignment="Right" />

@@ -8,20 +8,14 @@ namespace Library.Entities
 {
     public class Worker
     {
-        public Worker(int id,int no, string name, string surname, string phone, Branch branch, decimal salary,bool isClone)
+        public Worker(int id,string name, string surname, string phone, Branch branch, decimal salary,bool isClone)
         {
             Id = id;
-            No = no;
             Name = name;
             Surname = surname;
             Phone = phone;
             Branch = branch;
             Salary = salary;
-            if (isClone)
-            {
-                No = ++NoGenerator;
-                Id = NoGenerator;
-            }
         }
         public Worker()
         {
@@ -29,7 +23,7 @@ namespace Library.Entities
         }
         public Worker Clone()
         {
-            return new Worker(Id,No, Name, Surname, Phone, Branch, Salary,true);
+            return new Worker(Id, Name, Surname, Phone, Branch, Salary,true);
         }
         public int Id { get; set; }
         public string Name { get; set; }
@@ -38,7 +32,5 @@ namespace Library.Entities
         public Branch Branch { get; set; }
         public decimal Salary { get; set; }
 
-        static int NoGenerator = 0;
-        public int No { get;private set; }
     }
 }

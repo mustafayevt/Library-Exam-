@@ -11,28 +11,20 @@ namespace Library.Entities
         public int Id { get;private set; }
         public string Name { get; set; }
         public string Adress { get; set; }
-        public Branch(int id,int no, string name, string adress,bool isClone)
+        public Branch(int id, string name, string adress,bool isClone)
         {
             Id = id;
-            No = no;
             Name = name;
             Adress = adress;
-            if (isClone)
-            {
-                No = ++NoGenerator;
-                Id = NoGenerator;
-            }
         }
         public Branch()
         {
 
         }
-        static int NoGenerator = 0;
 
         public Branch Clone()
         {
-            return new Branch(Id,No, Name, Adress,true);
+            return new Branch(Id, Name, Adress,true);
         }
-        public int No { get;private set; }
     }
 }

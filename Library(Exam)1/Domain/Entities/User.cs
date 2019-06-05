@@ -22,8 +22,6 @@ namespace Library_EXAM_.Entities
             CanCreateBranch = canCreateBranch;
             CanCreateClient = canCreateClient;
             CanRent = canRent;
-            No = ++NoGenerator;
-            Id = NoGenerator;
         }
 
         public User Clone()
@@ -39,7 +37,5 @@ namespace Library_EXAM_.Entities
         public bool CanCreateClient { get; set; }
         public bool CanRent { get; set; }
 
-        static int NoGenerator = 0;
-        public int No { get; private set; }
     }
 }

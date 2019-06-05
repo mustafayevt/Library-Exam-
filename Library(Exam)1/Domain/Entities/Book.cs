@@ -8,7 +8,7 @@ namespace Library.Entities
 {
     public class Book
     {
-        public Book(int id,int no, string name, string author, decimal purchasePrice, decimal salePrice, int quantity, Branch branch,bool isClone)
+        public Book(int id, string name, string author, decimal purchasePrice, decimal salePrice, int quantity, Branch branch,bool isClone)
         {
             Name = name;
             Author = author;
@@ -17,16 +17,10 @@ namespace Library.Entities
             Quantity = quantity;
             Branch = branch;
             Id = id;
-            No = no;
-            if (isClone)
-            {
-                No = ++NoGenerator;
-                this.Id = NoGenerator;
-            }
         }
         public Book Clone()
         {
-            return new Book(Id,No, Name, Author, PurchasePrice, SalePrice, Quantity, Branch,true);
+            return new Book(Id, Name, Author, PurchasePrice, SalePrice, Quantity, Branch,true);
         }
         public Book()
         {
@@ -39,8 +33,5 @@ namespace Library.Entities
         public decimal SalePrice { get; set; }
         public int Quantity { get; set; }
         public Branch Branch { get; set; }
-
-        static int NoGenerator = 0;
-        public int No { get; private set; }
     }
 }

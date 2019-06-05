@@ -1,9 +1,11 @@
-﻿using Library_Exam_1.ViewModels;
+﻿using Library_Exam_1;
+using Library_Exam_1.ViewModels;
 using Library_Exam_1.Views.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -102,6 +104,10 @@ namespace Library_EXAM_
         private void Logout(object sender, MouseButtonEventArgs e)
         {
             this.Close();
+            foreach (var item in ((App)Application.Current).Windows)
+            {
+                (item as Window).Show();
+            }
         }
     }
 }

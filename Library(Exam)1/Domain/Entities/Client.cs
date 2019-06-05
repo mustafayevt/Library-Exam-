@@ -14,19 +14,13 @@ namespace Library.Entities
         public string Phone { get; set; }
         public DateTime JoinDate { get; set; }
 
-        public Client(int id,int no, string name, string surname, string phone, DateTime joinDate, bool isClone)
+        public Client(int id, string name, string surname, string phone, DateTime joinDate, bool isClone)
         {
             Id = id;
-            No = no;
             Name = name;
             Surname = surname;
             Phone = phone;
             JoinDate = joinDate;
-            if (isClone)
-            {
-                No = ++NoGenerator;
-                Id = NoGenerator;
-            }
         }
         public Client()
         {
@@ -35,11 +29,8 @@ namespace Library.Entities
 
         public Client Clone()
         {
-            return new Client(Id,No, Name, Surname, Phone, JoinDate,true);
+            return new Client(Id, Name, Surname, Phone, JoinDate,true);
         }
 
-        static int NoGenerator = 0;
-
-        public int No { get; private set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Library_EXAM_.Entities;
+﻿using Library_EXAM_;
+using Library_EXAM_.Entities;
+using Library_Exam_1.Views;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,6 +18,7 @@ namespace Library_Exam_1
     {
         public App()
         {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             Users = new List<User>()
             {
                 new User("admin","admin",true,true,true,true,true,true)

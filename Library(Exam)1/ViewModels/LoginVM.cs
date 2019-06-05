@@ -16,7 +16,7 @@ namespace Library_EXAM_.ViewModels
         {
             Users = ((App)Application.Current).Users;
             logInCMD = new LogInCMD(this);
-            LogInned = new User();
+            Loginned = new User();
         }
 
         private List<User> users;
@@ -31,10 +31,10 @@ namespace Library_EXAM_.ViewModels
 
         private User logInned;
 
-        public User LogInned
+        public User Loginned
         {
             get { return logInned; }
-            set { logInned = value; ((App)Application.Current).CurrentUser = LogInned.Clone(); }
+            set { logInned = value; ((App)Application.Current).CurrentUser = Loginned.Clone(); }
         }
 
 

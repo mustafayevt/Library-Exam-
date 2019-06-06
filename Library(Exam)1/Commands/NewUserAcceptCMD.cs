@@ -29,7 +29,6 @@ namespace Library_Exam_1.Commands
             if(mainVM.Users.Where(x=>x.Username == mainVM.NewUser.Username).FirstOrDefault()==null)
             {
                 mainVM.Users.Add(mainVM.NewUser.Clone());
-                ((App)Application.Current).Users = new List<Library_EXAM_.Entities.User>(mainVM.Users);
                 (new CustomMessageBox()).Show("User Added!");
             }
             else

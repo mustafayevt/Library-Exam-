@@ -75,14 +75,25 @@
     <Compile Include="Commands\NewUserAcceptCMD.cs" />
     <Compile Include="Commands\NewWorkerAcceptCMD.cs" />
     <Compile Include="Commands\SellingOperationsCMD.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFBookRepository.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFBranchRepository.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFClientRepository.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFUnitOfWork.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFUserRepository.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFWorkerRepository.cs" />
     <Compile Include="Domain\Abstraction\IBookRepository.cs" />
+    <Compile Include="Domain\Abstraction\IBranchRepository.cs" />
+    <Compile Include="Domain\Abstraction\IClientRepository.cs" />
     <Compile Include="Domain\Abstraction\IRepository.cs" />
+    <Compile Include="Domain\Abstraction\IUnitOfWork.cs" />
+    <Compile Include="Domain\Abstraction\IUserRepository.cs" />
+    <Compile Include="Domain\Abstraction\IWorkerRepository.cs" />
     <Compile Include="Domain\Entities\Book.cs" />
     <Compile Include="Domain\Entities\Branch.cs" />
     <Compile Include="Domain\Entities\Client.cs" />
     <Compile Include="Domain\Entities\User.cs" />
     <Compile Include="Domain\Entities\Worker.cs" />
-    <Compile Include="Library.cs" />
+    <Compile Include="LibraryDB.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SoldedBook.cs" />
     <Compile Include="Properties\Resources.az.Designer.cs">
@@ -259,8 +270,6 @@
     <Resource Include="Images\RentReport.png" />
     <Resource Include="Images\SalesReport.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

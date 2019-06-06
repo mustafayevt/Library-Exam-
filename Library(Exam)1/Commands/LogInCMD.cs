@@ -28,7 +28,7 @@ namespace Library_EXAM_.Commands
 
         public void Execute(object parameter)
         {
-            loginVM.Users = ((App)Application.Current).Users;
+            loginVM.Users = ((App)Application.Current).UnitOfWork.Users.GetAll().ToList();
             try
             {
                 loginVM.Password = (parameter as PasswordBox).Password;

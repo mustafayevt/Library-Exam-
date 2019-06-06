@@ -5,7 +5,7 @@ namespace Library_Exam_1.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Library_Exam_1.Library>
+    internal sealed class Configuration : DbMigrationsConfiguration<Library_Exam_1.LibraryDB>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace Library_Exam_1.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(Library_Exam_1.Library context)
+        protected override void Seed(Library_Exam_1.LibraryDB context)
         {
             //  This method will be called after migrating to the latest version.
 

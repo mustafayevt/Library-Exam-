@@ -1,5 +1,7 @@
 ﻿using Library_EXAM_;
 using Library_EXAM_.Entities;
+using Library_Exam_1.DataAccess;
+using Library_Exam_1.Domain.Abstraction;
 using Library_Exam_1.Views;
 using System;
 using System.Collections.Generic;
@@ -19,19 +21,17 @@ namespace Library_Exam_1
         public App()
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
-            Users = new List<User>()
+            UnitOfWork = new EFUnitOfWork();
+            using (LibraryDB db = new LibraryDB())
             {
-                new User("admin","admin",true,true,true,true,true,true)
-            };
+                if (db.Users.AsQueryable().FirstOrDefault(x => x.Username == "admin") == null)
+                {
+                    db.Users.Add(new User("admin", "admin", true));
+                    db.SaveChanges();
+                }
+            }
         }
         public User CurrentUser { get; set; }
-
-        private List<User> users;
-
-        public List<User> Users
-        {
-            get { return users; }
-            set { users = value; }
-        }
+        public IUnitOfWork UnitOfWork { get; set; } 
     }
 }

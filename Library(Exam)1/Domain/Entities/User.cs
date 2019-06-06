@@ -13,7 +13,7 @@ namespace Library_EXAM_.Entities
             
         }
 
-        public User(string username, string password, bool canCreateBook, bool canCreateUser, bool canCreateBranch, bool canCreateClient, bool canRent, bool isClone)
+        public User(string username, string password, bool canCreateBook, bool canCreateUser, bool canCreateBranch, bool canCreateClient, bool canRent)
         {
             Username = username;
             Password = password;
@@ -24,11 +24,18 @@ namespace Library_EXAM_.Entities
             CanRent = canRent;
         }
 
+        public User(string username, string password, bool isAdmin)
+        {
+            Username = username;
+            Password = password;
+            IsAdmin = isAdmin;
+        }
+
         public User Clone()
         {
-            return new User(Username, Password, CanCreateBook, CanCreateUser, CanCreateBranch, CanCreateClient, CanRent, true);
+            return new User(Username, Password, CanCreateBook, CanCreateUser, CanCreateBranch, CanCreateClient, CanRent);
         }
-        public int Id { get; private set; }
+        public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public bool CanCreateBook { get; set; }
@@ -36,6 +43,16 @@ namespace Library_EXAM_.Entities
         public bool CanCreateBranch { get; set; }
         public bool CanCreateClient { get; set; }
         public bool CanRent { get; set; }
+
+        public bool IsAdmin
+        {
+            set
+            {
+                GetType()
+          .GetProperties().Where(p => p.PropertyType == typeof(bool) && p.Name.ToLower().Contains("can"))
+          .ToList().ForEach(x => x.SetValue(this, true, null));
+            }
+        }
 
     }
 }

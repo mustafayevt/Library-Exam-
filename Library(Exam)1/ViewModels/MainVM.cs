@@ -18,7 +18,7 @@ namespace Library_Exam_1.ViewModels
         public MainVM()
         {
             #region Create objects
-            Users = new ObservableCollection<User>(((App)Application.Current).Users);
+            Users = new ObservableCollection<User>(((App)Application.Current).UnitOfWork.Users.GetAll());
             Workers = new ObservableCollection<Worker>();
             Branches = new ObservableCollection<Branch>();
             Books = new ObservableCollection<Book>();

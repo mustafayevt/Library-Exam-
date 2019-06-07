@@ -24,18 +24,22 @@ namespace Library_Exam_1.DataAccess.EntityFramework
 
         public IEnumerable<Worker> GetAll()
         {
+            IEnumerable<Worker> workers;
             using (_context = new LibraryDB())
             {
-                return _context.Workers;
+                workers = new List<Worker>( _context.Workers);
             }
+            return workers;
         }
 
         public Worker GetById(int id)
         {
+            Worker worker;
             using (_context = new LibraryDB())
             {
-                return _context.Workers.AsQueryable().FirstOrDefault(x => x.Id == id);
+                worker = _context.Workers.AsQueryable().FirstOrDefault(x => x.Id == id).Clone();
             }
+            return worker;
         }
 
         public void Remove(Worker entity)

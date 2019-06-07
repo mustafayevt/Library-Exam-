@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Library_Exam_1.Commands
 {
-    class NewBranchAcceptCMD : ICommand
+    public class NewBranchAcceptCMD : ICommand
     {
         public event EventHandler CanExecuteChanged;
         MainVM mainVM;
@@ -24,7 +24,7 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            mainVM.Branches.Add(mainVM.NewBranch.Clone());
+            App.UnitOfWork.Branches.Add(mainVM.NewBranch);
             (new CustomMessageBox()).Show("Branch Added!");
         }
     }

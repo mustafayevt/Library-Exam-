@@ -3,6 +3,7 @@ namespace Library_Exam_1
     using global::Library.Entities;
     using Library_EXAM_.Entities;
     using Library_Exam_1.Migrations;
+    using Library_Exam_1.Models;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -26,6 +27,8 @@ namespace Library_Exam_1
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Worker> Workers { get; set; }
+        public virtual DbSet<SoldedBook> SoldedBooks { get; set; }
+        public virtual DbSet<RentedBook> RentedBooks { get; set; }
     }
 
 }

@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Library_Exam_1.Commands
 {
-    class NewBookAcceptCMD : ICommand
+    public class NewBookAcceptCMD : ICommand
     {
         public event EventHandler CanExecuteChanged;
         MainVM mainVM;
@@ -24,8 +24,16 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            mainVM.Books.Add(mainVM.NewBook.Clone());
-            (new CustomMessageBox()).Show("Book Added!");
+            try
+            {
+                App.UnitOfWork.Books.Add(mainVM.NewBook);
+                new CustomMessageBox().Show("Book Added!");
+            }
+            catch (Exception)
+            {
+                new CustomMessageBox().Show("Not Added");
+            }
+            
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Library_Exam_1.Commands
 {
-    class NewClientAcceptCMD : ICommand
+    public class NewClientAcceptCMD : ICommand
     {
         public event EventHandler CanExecuteChanged;
         MainVM mainVM;
@@ -25,7 +25,7 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            mainVM.Clients.Add(mainVM.NewClient.Clone());
+            App.UnitOfWork.Clients.Add(mainVM.NewClient.Clone());
             (new CustomMessageBox()).Show("Client Added!");
         }
     }

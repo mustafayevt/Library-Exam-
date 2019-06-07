@@ -14,7 +14,7 @@ namespace Library_EXAM_.ViewModels
     {
         public LoginVM()
         {
-            //Users = ((App)Application.Current).UnitOfWork.Users.GetAll().ToList();
+            Users = App.UnitOfWork.Users.GetAll().ToList();
             logInCMD = new LogInCMD(this);
             Loginned = new User();
         }

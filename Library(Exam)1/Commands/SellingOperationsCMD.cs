@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Library_Exam_1.Commands
 {
-    class SellingOperationsCMD : ICommand
+    public class SellingOperationsCMD : ICommand
     {
         public event EventHandler CanExecuteChanged;
         MainVM mainVM;
@@ -26,15 +26,24 @@ namespace Library_Exam_1.Commands
         public void Execute(object parameter)
         {
             int.TryParse((string)parameter, out int param);
-
-            if (param == 1)
+            try
             {
-                mainVM.SoldedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Clone(), mainVM.SelectedClient.Clone(), mainVM.CurrentUser.Clone(), DateTime.Now));
+                if (param == 1)
+                {
+                    mainVM.SoldedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Id, mainVM.SelectedClient.Id, mainVM.CurrentUser.Id, DateTime.Now));
+                    new CustomMessageBox().Show("Solded!");
+                }
+                else if (param == 2)
+                {
+                    mainVM.RentedBooks.Add(new Models.RentedBook(mainVM.SelectedBook.Id, mainVM.SelectedClient.Id, mainVM.CurrentUser.Id, DateTime.Now));
+                    new CustomMessageBox().Show("Rented!");
+                }
             }
-            else if (param == 2)
+            catch (Exception)
             {
-                mainVM.RentedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Clone(), mainVM.SelectedClient.Clone(), mainVM.CurrentUser.Clone(), DateTime.Now));
+                new CustomMessageBox().Show("Error!");
             }
+            
         }
     }
 }

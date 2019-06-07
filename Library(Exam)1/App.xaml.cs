@@ -32,6 +32,6 @@ namespace Library_Exam_1
             }
         }
         public User CurrentUser { get; set; }
-        public IUnitOfWork UnitOfWork { get; set; } 
+        public static IUnitOfWork UnitOfWork { get; set; } 
     }
 }

@@ -1,5 +1,5 @@
-﻿using Library_Exam_1.Tools;
-using Library_Exam_1.ViewModels;
+﻿using Library_Exam_1.ViewModels;
+using Library_Exam_1.Views.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Library_Exam_1.Commands
+namespace Library_Exam_1.Commands.ViewCommand
 {
-    public class NewWorkerAcceptCMD : ICommand
+    public class ReportUCCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         MainVM mainVM;
-        public NewWorkerAcceptCMD(MainVM mainVM)
+
+        public ReportUCCommand(MainVM mainVM)
         {
             this.mainVM = mainVM;
         }
@@ -25,16 +26,13 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            try
+            int choice = Convert.ToInt32(parameter);
+            if (choice == 1)
+                mainVM.MainBorder.Child = new SalesReportUC();
+            else if (choice == 2)
             {
-                App.UnitOfWork.Workers.Add(mainVM.NewWorker);
-                (new CustomMessageBox()).Show("Worker Added!");
+                mainVM.MainBorder.Child = new RentsReportUC();
             }
-            catch (Exception)
-            {
-                new CustomMessageBox().Show("Not Added");
-            }
-            
         }
     }
 }

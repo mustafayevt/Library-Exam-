@@ -23,18 +23,22 @@ namespace Library_Exam_1.DataAccess.EntityFramework
 
         public IEnumerable<Branch> GetAll()
         {
+            IEnumerable<Branch> branches;
             using (_context = new LibraryDB())
             {
-                return _context.Branches;
+                branches = new List<Branch>( _context.Branches);
             }
+            return branches;
         }
 
         public Branch GetById(int id)
         {
+            Branch branch;
             using (_context = new LibraryDB())
             {
-                return _context.Branches.AsQueryable().FirstOrDefault(x=>x.Id==id);
+                branch = _context.Branches.AsQueryable().FirstOrDefault(x=>x.Id==id).Clone();
             }
+            return branch;
         }
 
         public void Remove(Branch entity)

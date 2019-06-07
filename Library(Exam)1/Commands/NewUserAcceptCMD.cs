@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace Library_Exam_1.Commands
 {
-    class NewUserAcceptCMD : ICommand
+    public class NewUserAcceptCMD : ICommand
     {
         public event EventHandler CanExecuteChanged;
         MainVM mainVM;
@@ -28,7 +28,7 @@ namespace Library_Exam_1.Commands
         {
             if(mainVM.Users.Where(x=>x.Username == mainVM.NewUser.Username).FirstOrDefault()==null)
             {
-                mainVM.Users.Add(mainVM.NewUser.Clone());
+                App.UnitOfWork.Users.Add(mainVM.NewUser);
                 (new CustomMessageBox()).Show("User Added!");
             }
             else

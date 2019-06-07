@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Library_Exam_1.Models
 {
-    public class SoldedBook
+    public class RentedBook
     {
-        public SoldedBook()
+        public RentedBook()
         {
 
         }
 
-        public SoldedBook(int bookId, int clientId, int userId, DateTime dateTime)
+        public RentedBook(int bookId, int clientId, int userId, DateTime dateTime)
         {
             BookId = bookId;
             ClientId = clientId;
@@ -23,6 +23,7 @@ namespace Library_Exam_1.Models
             DateTime = dateTime;
         }
         public int Id { get; set; }
+
         public int BookId { get; set; }
         public Book Book { get; set; }
         public int ClientId { get; set; }

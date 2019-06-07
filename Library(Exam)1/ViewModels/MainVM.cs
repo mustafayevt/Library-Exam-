@@ -2,6 +2,7 @@
 using Library_EXAM_.Entities;
 using Library_EXAM_.ViewModels;
 using Library_Exam_1.Commands;
+using Library_Exam_1.Commands.ViewCommand;
 using Library_Exam_1.Models;
 using System;
 using System.Collections.Generic;
@@ -10,21 +11,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Library_Exam_1.ViewModels
 {
-    class MainVM : BaseVM
+    public class MainVM : BaseVM
     {
-        public MainVM()
+        public MainVM(Border UCBorder)
         {
             #region Create objects
-            Users = new ObservableCollection<User>(((App)Application.Current).UnitOfWork.Users.GetAll());
+            Users = new ObservableCollection<User>();
             Workers = new ObservableCollection<Worker>();
             Branches = new ObservableCollection<Branch>();
             Books = new ObservableCollection<Book>();
             Clients = new ObservableCollection<Client>();
             SoldedBooks = new ObservableCollection<SoldedBook>();
-            RentedBooks = new ObservableCollection<SoldedBook>();
+            RentedBooks = new ObservableCollection<RentedBook>();
 
             CurrentUser = ((App)Application.Current).CurrentUser;
             NewUser = new User();
@@ -43,8 +45,15 @@ namespace Library_Exam_1.ViewModels
             SellingOperationsCMD = new SellingOperationsCMD(this);
 
 
-            books.Add(new Book() { Name = "Book1" });
-            clients.Add(new Client() { Name = "Client1" });
+            AddEditBookUCCommand = new AddEditBookUCCommand(this);
+            AddEditBranchUCCommand = new AddEditBranchUCCommand(this);
+            AddEditClientUCCommand = new AddEditClientUCCommand(this);
+            AddEditUserUCCommand = new AddEditUserUCCommand(this);
+            AddEditWorkerUCCommand = new AddEditWorkerUCCommand(this);
+            ReportUCCommand = new ReportUCCommand(this);
+            SellBookUCCommand = new SellBookUCCommand(this);
+
+            MainBorder = UCBorder;
             #endregion
         }
         #region Models
@@ -116,9 +125,9 @@ namespace Library_Exam_1.ViewModels
             set { soldedBooks = value; OnPropertyChanged(nameof(SoldedBooks)); }
         }
 
-        private ObservableCollection<SoldedBook> rentedBooks;
+        private ObservableCollection<RentedBook> rentedBooks;
 
-        public ObservableCollection<SoldedBook> RentedBooks
+        public ObservableCollection<RentedBook> RentedBooks
         {
             get { return rentedBooks; }
             set { rentedBooks = value; OnPropertyChanged(nameof(RentedBooks)); }
@@ -141,5 +150,13 @@ namespace Library_Exam_1.ViewModels
 
         #endregion
 
+        public AddEditBookUCCommand AddEditBookUCCommand { get; set; }
+        public AddEditBranchUCCommand AddEditBranchUCCommand { get; set; }
+        public AddEditClientUCCommand AddEditClientUCCommand { get; set; }
+        public AddEditUserUCCommand AddEditUserUCCommand { get; set; }
+        public AddEditWorkerUCCommand AddEditWorkerUCCommand { get; set; }
+        public ReportUCCommand ReportUCCommand { get; set; }
+        public SellBookUCCommand SellBookUCCommand { get; set; }
+        public Border MainBorder { get; set; }
     }
 }

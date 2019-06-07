@@ -75,6 +75,13 @@
     <Compile Include="Commands\NewUserAcceptCMD.cs" />
     <Compile Include="Commands\NewWorkerAcceptCMD.cs" />
     <Compile Include="Commands\SellingOperationsCMD.cs" />
+    <Compile Include="Commands\ViewCommand\AddEditBookUCCommand.cs" />
+    <Compile Include="Commands\ViewCommand\AddEditBranchUCCommand.cs" />
+    <Compile Include="Commands\ViewCommand\AddEditClientUCCommand.cs" />
+    <Compile Include="Commands\ViewCommand\AddEditUserUCCommand.cs" />
+    <Compile Include="Commands\ViewCommand\AddEditWorkerUCCommand.cs" />
+    <Compile Include="Commands\ViewCommand\ReportUCCommand.cs" />
+    <Compile Include="Commands\ViewCommand\SellBookUCCommand.cs" />
     <Compile Include="DataAccess\EntityFramework\EFBookRepository.cs" />
     <Compile Include="DataAccess\EntityFramework\EFBranchRepository.cs" />
     <Compile Include="DataAccess\EntityFramework\EFClientRepository.cs" />
@@ -95,6 +102,7 @@
     <Compile Include="Domain\Entities\Worker.cs" />
     <Compile Include="LibraryDB.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\RentedBook.cs" />
     <Compile Include="Models\SoldedBook.cs" />
     <Compile Include="Properties\Resources.az.Designer.cs">
       <AutoGen>True</AutoGen>

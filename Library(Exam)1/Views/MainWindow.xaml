@@ -15,50 +15,102 @@
         </Border>
         <DockPanel Style="{StaticResource SlideMenu}" HorizontalAlignment="Left" Width="300" Background="#FF24253A">
             <DockPanel IsEnabled="{Binding CurrentUser.CanCreateUser}" DockPanel.Dock="Top" Margin="-10,10" MaxHeight="35" Height="35">
-                <Label MouseDown="AddUserUControl" Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditUserUCCommand}" CommandParameter="1"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="/" Style="{StaticResource MenuLabel}" FontSize="20" Margin="-10,0"/>
-                <Label MouseDown="EditUserUControl" Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditUserUCCommand}" CommandParameter="2"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="{x:Static p:Resources.User}" Style="{StaticResource MenuLabel}"/>
                 <Image Source="/Images/user.png" Stretch="UniformToFill" Height="30" Margin="20,0" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
             <DockPanel  DockPanel.Dock="Top" Margin="-10,10" MaxHeight="35" Height="35">
-                <Label MouseDown="AddWorkerUControl" Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditWorkerUCCommand}" CommandParameter="1"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="/" Style="{StaticResource MenuLabel}" FontSize="20" Margin="-10,0"/>
-                <Label MouseDown="EditWorkerUControl" Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditWorkerUCCommand}" CommandParameter="2"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="{x:Static p:Resources.Worker}" Style="{StaticResource MenuLabel}"/>
                 <Image Source="/Images/worker.png" Stretch="UniformToFill" Height="30" Margin="20,0" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
             <DockPanel IsEnabled="{Binding CurrentUser.CanCreateBranch}" DockPanel.Dock="Top" Margin="-10,10" MaxHeight="35" Height="35">
-                <Label MouseDown="AddBranchUControl" Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditBranchUCCommand}" CommandParameter="1"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="/" Style="{StaticResource MenuLabel}" FontSize="20" Margin="-10,0"/>
-                <Label MouseDown="EditBranchUControl" Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditBranchUCCommand}" CommandParameter="2"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="{x:Static p:Resources.Branch}" Style="{StaticResource MenuLabel}"/>
                 <Image Source="/Images/branch.png" Stretch="UniformToFill" Height="30" Margin="20,0" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
             <DockPanel IsEnabled="{Binding CurrentUser.CanCreateClient}" DockPanel.Dock="Top" Margin="-10,10" MaxHeight="35" Height="35">
-                <Label MouseDown="AddClienthUControl" Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditClientUCCommand}" CommandParameter="1"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="/" Style="{StaticResource MenuLabel}" FontSize="20" Margin="-10,0"/>
-                <Label MouseDown="EditClienthUControl" Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditClientUCCommand}" CommandParameter="2"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="{x:Static p:Resources.Client}" Style="{StaticResource MenuLabel}"/>
                 <Image Source="/Images/client.png" Stretch="UniformToFill" Height="30" Margin="20,0" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
             <DockPanel IsEnabled="{Binding CurrentUser.CanCreateBook}" DockPanel.Dock="Top" Margin="-10,10" MaxHeight="35" Height="35">
-                <Label MouseDown="AddBookUControl" Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Add}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditBookUCCommand}" CommandParameter="1"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="/" Style="{StaticResource MenuLabel}" FontSize="20" Margin="-10,0"/>
-                <Label MouseDown="EditBookUControl" Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Edit}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding AddEditBookUCCommand}" CommandParameter="2"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="{x:Static p:Resources.Book}" Style="{StaticResource MenuLabel}"/>
                 <Image Source="/Images/book.png" Stretch="UniformToFill" Height="30" Margin="20,0" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
             <Separator Margin="10,20" DockPanel.Dock="Top"/>
 
             <DockPanel IsEnabled="{Binding CurrentUser.CanCreateUser}" DockPanel.Dock="Top" Margin="-10,10" MaxHeight="35" Height="35">
-                <Label MouseDown="SellBookUControl" Content="{x:Static p:Resources.Sell___Rent_Book}" Style="{StaticResource MenuLabel}"/>
+                <Label Content="{x:Static p:Resources.Sell___Rent_Book}" Style="{StaticResource MenuLabel}">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding SellBookUCCommand}"/>
+                    </Label.InputBindings>
+                </Label>
                 <Image Source="/Images/BookSelling.png" Stretch="UniformToFill" Margin="20,0" Height="30" Width="30" HorizontalAlignment="Right" />
             </DockPanel>
             <DockPanel IsEnabled="{Binding CurrentUser.CanCreateBook}" DockPanel.Dock="Top" Margin="-10,10" MaxHeight="35" Height="35">
-                <Label MouseDown="SalesReportUControl"  Content="{x:Static p:Resources.Sales}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Sales}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding ReportUCCommand}" CommandParameter="1"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="/" Style="{StaticResource MenuLabel}" FontSize="20" Margin="-10,0"/>
-                <Label MouseDown="RentsReportUcontrol" Content="{x:Static p:Resources.Rents}" Style="{StaticResource MenuLabel}" FontSize="20"/>
+                <Label Content="{x:Static p:Resources.Rents}" Style="{StaticResource MenuLabel}" FontSize="20">
+                    <Label.InputBindings>
+                        <MouseBinding MouseAction="LeftClick" Command="{Binding ReportUCCommand}" CommandParameter="2"/>
+                    </Label.InputBindings>
+                </Label>
                 <Label IsEnabled="False" Content="{x:Static p:Resources.Reports}" Style="{StaticResource MenuLabel}" Margin="-10,0"/>
                 <Image Source="/Images/RentReport.png" Stretch="UniformToFill" Margin="20,0" Height="30" Width="30" HorizontalAlignment="Right" />
             </DockPanel>

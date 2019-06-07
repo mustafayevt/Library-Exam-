@@ -21,5 +21,9 @@ namespace Library_Exam_1.DataAccess
         public IUserRepository Users => new EFUserRepository();
 
         public IWorkerRepository Workers => new EFWorkerRepository();
+
+        public ISoldedBookRepository SoldedBooks => new EFSoldedBookRepository();
+
+        public IRentedBookRepository RentedBooks => new EFRentedBookRepository();
     }
 }

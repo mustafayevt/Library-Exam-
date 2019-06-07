@@ -85,13 +85,17 @@
     <Compile Include="DataAccess\EntityFramework\EFBookRepository.cs" />
     <Compile Include="DataAccess\EntityFramework\EFBranchRepository.cs" />
     <Compile Include="DataAccess\EntityFramework\EFClientRepository.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFRentedBookRepository.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFSoldedBookRepository.cs" />
     <Compile Include="DataAccess\EntityFramework\EFUnitOfWork.cs" />
     <Compile Include="DataAccess\EntityFramework\EFUserRepository.cs" />
     <Compile Include="DataAccess\EntityFramework\EFWorkerRepository.cs" />
     <Compile Include="Domain\Abstraction\IBookRepository.cs" />
     <Compile Include="Domain\Abstraction\IBranchRepository.cs" />
     <Compile Include="Domain\Abstraction\IClientRepository.cs" />
+    <Compile Include="Domain\Abstraction\IRentedBookRepository.cs" />
     <Compile Include="Domain\Abstraction\IRepository.cs" />
+    <Compile Include="Domain\Abstraction\ISoldedBookRepository.cs" />
     <Compile Include="Domain\Abstraction\IUnitOfWork.cs" />
     <Compile Include="Domain\Abstraction\IUserRepository.cs" />
     <Compile Include="Domain\Abstraction\IWorkerRepository.cs" />

@@ -13,5 +13,7 @@ namespace Library_Exam_1.Domain.Abstraction
         IClientRepository Clients { get;  }
         IUserRepository Users { get; }
         IWorkerRepository Workers { get; }
+        ISoldedBookRepository SoldedBooks { get; }
+        IRentedBookRepository RentedBooks { get; }
     }
 }

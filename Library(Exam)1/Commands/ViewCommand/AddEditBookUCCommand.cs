@@ -30,6 +30,7 @@ namespace Library_Exam_1.Commands.ViewCommand
             if (choice == 1)
             {
                 mainVM.MainBorder.Child = new AddBookUC();
+                mainVM.Branches = new System.Collections.ObjectModel.ObservableCollection<Library.Entities.Branch>(App.UnitOfWork.Branches.GetAll());
             }
             else if (choice == 2)
             {

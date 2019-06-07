@@ -30,12 +30,12 @@ namespace Library_Exam_1.Commands
             {
                 if (param == 1)
                 {
-                    mainVM.SoldedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Id, mainVM.SelectedClient.Id, mainVM.CurrentUser.Id, DateTime.Now));
+                    App.UnitOfWork.SoldedBooks.Add(new Models.SoldedBook(mainVM.SelectedBook.Id, mainVM.SelectedClient.Id, mainVM.CurrentUser.Id, DateTime.Now));
                     new CustomMessageBox().Show("Solded!");
                 }
                 else if (param == 2)
                 {
-                    mainVM.RentedBooks.Add(new Models.RentedBook(mainVM.SelectedBook.Id, mainVM.SelectedClient.Id, mainVM.CurrentUser.Id, DateTime.Now));
+                    App.UnitOfWork.RentedBooks.Add(new Models.RentedBook(mainVM.SelectedBook.Id, mainVM.SelectedClient.Id, mainVM.CurrentUser.Id, DateTime.Now));
                     new CustomMessageBox().Show("Rented!");
                 }
             }

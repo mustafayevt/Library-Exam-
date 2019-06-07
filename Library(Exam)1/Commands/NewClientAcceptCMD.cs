@@ -25,8 +25,15 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            App.UnitOfWork.Clients.Add(mainVM.NewClient.Clone());
-            (new CustomMessageBox()).Show("Client Added!");
+            try
+            {
+                App.UnitOfWork.Clients.Add(mainVM.NewClient);
+                (new CustomMessageBox()).Show("Client Added!");
+            }
+            catch (Exception)
+            {
+                new CustomMessageBox().Show("Not Added");
+            }
         }
     }
 }

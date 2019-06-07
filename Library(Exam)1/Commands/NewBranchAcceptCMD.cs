@@ -24,8 +24,15 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            App.UnitOfWork.Branches.Add(mainVM.NewBranch);
-            (new CustomMessageBox()).Show("Branch Added!");
+            try
+            {
+                App.UnitOfWork.Branches.Add(mainVM.NewBranch);
+                (new CustomMessageBox()).Show("Branch Added!");
+            }
+            catch (Exception)
+            {
+                new CustomMessageBox().Show("Not Added");
+            }
         }
     }
 }

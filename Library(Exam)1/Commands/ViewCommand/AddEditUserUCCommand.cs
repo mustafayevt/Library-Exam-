@@ -28,7 +28,9 @@ namespace Library_Exam_1.Commands.ViewCommand
         {
             int choice = Convert.ToInt32(parameter);
             if (choice == 1)
+            {
                 MainVM.MainBorder.Child = new AddUserUC();
+            }
             else if (choice == 2)
             {
                 MainVM.Users = new System.Collections.ObjectModel.ObservableCollection<Library_EXAM_.Entities.User>(App.UnitOfWork.Users.GetAll());

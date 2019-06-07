@@ -97,7 +97,7 @@
                         <MouseBinding MouseAction="LeftClick" Command="{Binding SellBookUCCommand}"/>
                     </Label.InputBindings>
                 </Label>
-                <Image Source="/Images/BookSelling.png" Stretch="UniformToFill" Margin="20,0" Height="30" Width="30" HorizontalAlignment="Right" />
+                <Image Source="/Images/BookSelling.png" Stretch="UniformToFill" Margin="20,0" Height="30" Width="30" HorizontalAlignment="Right"/>
             </DockPanel>
             <DockPanel IsEnabled="{Binding CurrentUser.CanCreateBook}" DockPanel.Dock="Top" Margin="-10,10" MaxHeight="35" Height="35">
                 <Label Content="{x:Static p:Resources.Sales}" Style="{StaticResource MenuLabel}" FontSize="20">

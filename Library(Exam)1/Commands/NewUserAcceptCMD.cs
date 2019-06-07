@@ -26,6 +26,7 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
+            mainVM.Users = new System.Collections.ObjectModel.ObservableCollection<User>(App.UnitOfWork.Users.GetAll());
             if(mainVM.Users.Where(x=>x.Username == mainVM.NewUser.Username).FirstOrDefault()==null)
             {
                 App.UnitOfWork.Users.Add(mainVM.NewUser);

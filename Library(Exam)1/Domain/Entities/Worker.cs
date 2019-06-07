@@ -29,7 +29,8 @@ namespace Library.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Phone { get; set; }
-        public Branch Branch { get; set; }
+        public int BranchId { get; set; }
+        public virtual Branch Branch { get; set; }
         public decimal Salary { get; set; }
 
     }

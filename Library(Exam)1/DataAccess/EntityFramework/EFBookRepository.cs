@@ -26,7 +26,7 @@ namespace Library_Exam_1.DataAccess.EntityFramework
             IEnumerable<Book> books;
             using (_context = new LibraryDB())
             {
-                books = new List<Book>( _context.Books);
+                books = new List<Book>( _context.Books.Include("Branch"));
             }
             return books;
         }
@@ -36,7 +36,7 @@ namespace Library_Exam_1.DataAccess.EntityFramework
             Book book;
             using (_context = new LibraryDB())
             {
-                book = _context.Books.AsQueryable().FirstOrDefault(x => x.Id == id).Clone();
+                book = _context.Books.AsQueryable().FirstOrDefault(x => x.Id == id);
             }
             return book;
         }

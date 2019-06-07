@@ -27,7 +27,7 @@ namespace Library_Exam_1.DataAccess.EntityFramework
             IEnumerable<Worker> workers;
             using (_context = new LibraryDB())
             {
-                workers = new List<Worker>( _context.Workers);
+                workers = new List<Worker>( _context.Workers.Include("Branch"));
             }
             return workers;
         }

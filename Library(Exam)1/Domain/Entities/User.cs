@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,10 +32,8 @@ namespace Library_EXAM_.Entities
             IsAdmin = isAdmin;
         }
 
-        public User Clone()
-        {
-            return new User(Username, Password, CanCreateBook, CanCreateUser, CanCreateBranch, CanCreateClient, CanRent);
-        }
+       
+        [Key]
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

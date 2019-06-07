@@ -25,7 +25,7 @@ namespace Library_Exam_1.DataAccess.EntityFramework
             IEnumerable<SoldedBook> soldedBooks;
             using (_context = new LibraryDB())
             {
-                soldedBooks = new List<SoldedBook>(_context.SoldedBooks);
+                soldedBooks = new List<SoldedBook>(_context.SoldedBooks.Include("Book").Include("User").Include("Client"));
             }
             return soldedBooks;
         }

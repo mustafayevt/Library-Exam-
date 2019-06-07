@@ -37,7 +37,7 @@ namespace Library_Exam_1.DataAccess.EntityFramework
             User user;
             using (_context = new LibraryDB())
             {
-                user =  _context.Users.AsQueryable().FirstOrDefault(x => x.Id == id).Clone();
+                user = _context.Users.AsQueryable().FirstOrDefault(x => x.Id == id);
             }
             return user;
         }

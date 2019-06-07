@@ -25,7 +25,7 @@ namespace Library_Exam_1.DataAccess.EntityFramework
             IEnumerable<RentedBook> rentedBooks;
             using (_context = new LibraryDB())
             {
-                rentedBooks = new List<RentedBook>(_context.RentedBooks);
+                rentedBooks = new List<RentedBook>(_context.RentedBooks.Include("Book").Include("Client").Include("User"));
             }
             return rentedBooks;
         }

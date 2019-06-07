@@ -28,7 +28,10 @@ namespace Library_Exam_1.Commands.ViewCommand
         {
             int choice = Convert.ToInt32(parameter);
             if (choice == 1)
+            {
+                mainVM.Branches = new System.Collections.ObjectModel.ObservableCollection<Library.Entities.Branch>(App.UnitOfWork.Branches.GetAll());
                 mainVM.MainBorder.Child = new AddWorkerUC();
+            }
             else if (choice == 2)
             {
                 mainVM.Workers = new System.Collections.ObjectModel.ObservableCollection<Library.Entities.Worker>(App.UnitOfWork.Workers.GetAll());

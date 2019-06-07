@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Library_Exam_1.Commands.ViewCommand
@@ -28,9 +29,13 @@ namespace Library_Exam_1.Commands.ViewCommand
         {
             int choice = Convert.ToInt32(parameter);
             if (choice == 1)
+            {
+                mainVM.SoldedBooks = new System.Collections.ObjectModel.ObservableCollection<Models.SoldedBook>(App.UnitOfWork.SoldedBooks.GetAll());
                 mainVM.MainBorder.Child = new SalesReportUC();
+            }
             else if (choice == 2)
             {
+                mainVM.RentedBooks = new System.Collections.ObjectModel.ObservableCollection<Models.RentedBook>(App.UnitOfWork.RentedBooks.GetAll());
                 mainVM.MainBorder.Child = new RentsReportUC();
             }
         }

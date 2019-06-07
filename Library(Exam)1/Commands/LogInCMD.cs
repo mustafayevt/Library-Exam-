@@ -34,7 +34,7 @@ namespace Library_EXAM_.Commands
                 loginVM.Password = (parameter as PasswordBox).Password;
                 if (loginVM.Users.Single(x => x.Username == loginVM.Username).Password == loginVM.Password)
                 {
-                    loginVM.Loginned = loginVM.Users.Single(x => x.Username == loginVM.Username).Clone();
+                    loginVM.Loginned = loginVM.Users.Single(x => x.Username == loginVM.Username);
                     foreach (var item in ((App)Application.Current).Windows)
                     {
                         (item as Window).Hide();

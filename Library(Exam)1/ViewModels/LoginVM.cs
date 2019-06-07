@@ -34,7 +34,7 @@ namespace Library_EXAM_.ViewModels
         public User Loginned
         {
             get { return logInned; }
-            set { logInned = value; ((App)Application.Current).CurrentUser = Loginned.Clone(); }
+            set { logInned = value; ((App)Application.Current).CurrentUser = Loginned; }
         }
 
 

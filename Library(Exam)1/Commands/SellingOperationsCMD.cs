@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Library_Exam_1.Commands
@@ -39,7 +40,7 @@ namespace Library_Exam_1.Commands
                     new CustomMessageBox().Show("Rented!");
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 new CustomMessageBox().Show("Error!");
             }

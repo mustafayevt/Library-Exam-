@@ -158,5 +158,7 @@ namespace Library_Exam_1.ViewModels
         public ReportUCCommand ReportUCCommand { get; set; }
         public SellBookUCCommand SellBookUCCommand { get; set; }
         public Border MainBorder { get; set; }
+
+        public Book selectedBook { get; set; } = new Book();
     }
 }

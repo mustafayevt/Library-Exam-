@@ -1,10 +1,7 @@
 ﻿using Library_Exam_1.ViewModels;
 using Library_Exam_1.Views.UserControls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace Library_Exam_1.Commands.ViewCommand
@@ -30,11 +27,11 @@ namespace Library_Exam_1.Commands.ViewCommand
             if (choice == 1)
             {
                 mainVM.MainBorder.Child = new AddBookUC();
-                mainVM.Branches = new System.Collections.ObjectModel.ObservableCollection<Library.Entities.Branch>(App.UnitOfWork.Branches.GetAll());
+                mainVM.Branches = new ObservableCollection<Library.Entities.Branch>(App.UnitOfWork.Branches.GetAll());
             }
             else if (choice == 2)
             {
-                mainVM.Books = new System.Collections.ObjectModel.ObservableCollection<Library.Entities.Book>(App.UnitOfWork.Books.GetAll());
+                mainVM.Books = new ObservableCollection<Library.Entities.Book>(App.UnitOfWork.Books.GetAll());
                 mainVM.MainBorder.Child = new EditBookUC();
             }
         }

@@ -14,10 +14,10 @@ namespace Library_Exam_1.Commands
     public class NewUserAcceptCMD : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        MainVM mainVM;
+        MainVM UserVM;
         public NewUserAcceptCMD(MainVM mainVM)
         {
-            this.mainVM = mainVM;
+            this.UserVM = mainVM;
         }
         public bool CanExecute(object parameter)
         {
@@ -26,15 +26,26 @@ namespace Library_Exam_1.Commands
 
         public void Execute(object parameter)
         {
-            mainVM.Users = new System.Collections.ObjectModel.ObservableCollection<User>(App.UnitOfWork.Users.GetAll());
-            if(mainVM.Users.Where(x=>x.Username == mainVM.NewUser.Username).FirstOrDefault()==null)
+            if (UserVM.NewUser.Id == 0)
             {
-                App.UnitOfWork.Users.Add(mainVM.NewUser);
-                (new CustomMessageBox()).Show("User Added!");
+                if(App.UnitOfWork.Users.GetAll().AsQueryable().FirstOrDefault(x=>x.Username == UserVM.NewUser.Username) != null)
+                {
+                    (new CustomMessageBox()).Show("This Username Already Taken!");
+                    return;
+                }
+                try
+                {
+                    App.UnitOfWork.Users.Add(UserVM.NewUser);
+                    (new CustomMessageBox()).Show("User Added!");
+                }
+                catch (Exception)
+                {
+                (new CustomMessageBox()).Show("Error!");
+                }
             }
-            else
+            else if (UserVM.NewUser.Id > 0)
             {
-                (new CustomMessageBox()).Show("This Username Already Taken!");
+
             }
         }
     }

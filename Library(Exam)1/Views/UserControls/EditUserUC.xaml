@@ -7,12 +7,41 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid  Background="#FF24253A">
-        <DataGrid  Background="#FF24253A" ColumnWidth="*" CanUserAddRows="False" CanUserReorderColumns="False" ItemsSource="{Binding Users}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="UsersDataGrid" Background="#FF24253A" ColumnWidth="*" SelectedItem="{Binding NewUser}" IsReadOnly="True" CanUserAddRows="False" CanUserReorderColumns="False" ItemsSource="{Binding Users}">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Orange" />
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
+
+
+        <DockPanel Grid.Row="1">
+            <Button HorizontalAlignment="Right" Height="40" Width="120"  BorderThickness="0" BorderBrush="#60444444" IsEnabled="True" Background="#60444444">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border VerticalAlignment="Stretch" BorderThickness="5" CornerRadius="10" BorderBrush="#FF333337" Height="auto">
+                            <Button Command="{Binding EditUserViewCommand}"  FontSize="22" BorderThickness="0" Background="#FF333337" Foreground="#FFC2C2C2" FontFamily="Century Gothic" FontWeight="Bold" Content="Edit">
+
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedIndex, ElementName=UsersDataGrid, UpdateSourceTrigger=PropertyChanged}" Value="-1">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </DockPanel>
     </Grid>
 </UserControl>

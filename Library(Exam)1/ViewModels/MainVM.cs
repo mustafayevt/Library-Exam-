@@ -36,8 +36,7 @@ namespace Library_Exam_1.ViewModels
             NewClient = new Client();
             SelectedClient = new Client();
             SelectedBook = new Book();
-
-            NewUserAcceptCMD = new NewUserAcceptCMD(this);
+            
             NewWorkerAcceptCMD = new NewWorkerAcceptCMD(this);
             NewBranchAcceptCMD = new NewBranchAcceptCMD(this);
             NewClientAcceptCMD = new NewClientAcceptCMD(this);
@@ -52,6 +51,9 @@ namespace Library_Exam_1.ViewModels
             AddEditWorkerUCCommand = new AddEditWorkerUCCommand(this);
             ReportUCCommand = new ReportUCCommand(this);
             SellBookUCCommand = new SellBookUCCommand(this);
+            NewUserAcceptCMD = new NewUserAcceptCMD(this);
+
+            EditUserViewCommand = new EditUserViewCommand(this);
 
             MainBorder = UCBorder;
             #endregion
@@ -67,7 +69,16 @@ namespace Library_Exam_1.ViewModels
             set { users = value; }
         }
         public User CurrentUser { get; private set; }
-        public User NewUser { get; set; }
+        private User _user;
+        public User NewUser
+        {
+            get => _user;
+            set
+            {
+                _user = value;
+                OnPropertyChanged(nameof(NewUser));
+            }
+        }
         #endregion
         #region AddWorker
         private ObservableCollection<Worker> workers;
@@ -140,16 +151,18 @@ namespace Library_Exam_1.ViewModels
 
 
         #region Commands
-        public NewUserAcceptCMD NewUserAcceptCMD { get; set; }
         public NewWorkerAcceptCMD NewWorkerAcceptCMD { get; set; }
         public NewBranchAcceptCMD NewBranchAcceptCMD { get; set; }
         public NewClientAcceptCMD NewClientAcceptCMD { get; set; }
         public NewBookAcceptCMD NewBookAcceptCMD { get; set; }
         public SellingOperationsCMD SellingOperationsCMD { get; set; }
+
+        public EditUserViewCommand EditUserViewCommand { get; set; }
         #endregion
 
         #endregion
 
+        public NewUserAcceptCMD NewUserAcceptCMD { get; set; }
         public AddEditBookUCCommand AddEditBookUCCommand { get; set; }
         public AddEditBranchUCCommand AddEditBranchUCCommand { get; set; }
         public AddEditClientUCCommand AddEditClientUCCommand { get; set; }

@@ -80,6 +80,7 @@
     <Compile Include="Commands\ViewCommand\AddEditClientUCCommand.cs" />
     <Compile Include="Commands\ViewCommand\AddEditUserUCCommand.cs" />
     <Compile Include="Commands\ViewCommand\AddEditWorkerUCCommand.cs" />
+    <Compile Include="Commands\ViewCommand\EditUserViewCommand.cs" />
     <Compile Include="Commands\ViewCommand\ReportUCCommand.cs" />
     <Compile Include="Commands\ViewCommand\SellBookUCCommand.cs" />
     <Compile Include="DataAccess\EntityFramework\EFBookRepository.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\MainVM.cs" />
+    <Compile Include="ViewModels\UserVM.cs" />
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>

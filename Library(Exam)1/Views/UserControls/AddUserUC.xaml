@@ -81,14 +81,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <Label Style="{StaticResource UCTitle}" Margin="10,0" Content="New User"/>
+        <Label Style="{StaticResource UCTitle}" Margin="10,0" Content="User"/>
         <Separator VerticalAlignment="Bottom" Margin="30,0"/>
 
 
         <UniformGrid Columns="2" Rows="2" Grid.Row="1">
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Username" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                <TextBox   Margin="30,0,0,0" BorderThickness="0" x:Name="UsernameTxtbx" Text="{Binding NewUser.Username,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24">
+                <TextBox Margin="30,0,0,0" BorderThickness="0" x:Name="UsernameTxtbx" Text="{Binding NewUser.Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24">
 
                     <TextBox.InputBindings>
                         <KeyBinding Command="{Binding Path=logInCMD}" Key="Enter" />
@@ -100,7 +100,7 @@
             <StackPanel VerticalAlignment="Center">
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock Text="Password" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                    <TextBox x:Name="PasswordTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewUser.Password,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24">
+                    <TextBox x:Name="PasswordTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewUser.Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24">
 
                         <TextBox.InputBindings>
                             <KeyBinding Command="{Binding Path=logInCMD}" Key="Enter" />

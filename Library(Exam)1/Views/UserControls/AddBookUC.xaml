@@ -82,7 +82,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <Label Style="{StaticResource UCTitle}" Margin="10,0" Content="New User"/>
+        <Label Style="{StaticResource UCTitle}" Margin="10,0" Content="Book"/>
         <Separator VerticalAlignment="Bottom" Margin="30,0"/>
 
 

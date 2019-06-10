@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid  Background="#FF24253A">
-        <DataGrid  Background="#FF24253A" ColumnWidth="*" CanUserAddRows="False" CanUserReorderColumns="False" ItemsSource="{Binding Branches}">
+        <DataGrid  Background="#FF24253A" ColumnWidth="*" CanUserAddRows="False" IsReadOnly="True" CanUserReorderColumns="False" ItemsSource="{Binding Branches}">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Orange" />

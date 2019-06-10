@@ -24,6 +24,7 @@ namespace Library_Exam_1.Commands.ViewCommand
         public void Execute(object parameter)
         {
             int choice = Convert.ToInt32(parameter);
+            mainVM.NewBook = new Library.Entities.Book();
             if (choice == 1)
             {
                 mainVM.MainBorder.Child = new AddBookUC();

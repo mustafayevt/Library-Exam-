@@ -1,5 +1,6 @@
 ﻿using Library_Exam_1.Tools;
 using Library_Exam_1.ViewModels;
+using Library_Exam_1.Views.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,13 +28,22 @@ namespace Library_Exam_1.Commands
             try
             {
                 App.UnitOfWork.Books.Add(mainVM.NewBook);
-                new CustomMessageBox().Show("Book Added!");
+                if (mainVM.NewBook.Id == 0)
+                {
+                    new CustomMessageBox().Show("Book Added!");
+                }
+                else
+                {
+                    new CustomMessageBox().Show("Book Updated!");
+                    mainVM.MainBorder.Child = new EditBookUC();
+                }
             }
             catch (Exception)
             {
-                new CustomMessageBox().Show("Not Added");
+                new CustomMessageBox().Show("Error!");
             }
-            
+            mainVM.NewBook = new Library.Entities.Book();
+            mainVM.Books = new System.Collections.ObjectModel.ObservableCollection<Library.Entities.Book>(App.UnitOfWork.Books.GetAll());
         }
     }
 }

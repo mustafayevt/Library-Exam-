@@ -68,6 +68,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\DeleteBookCommand.cs" />
+    <Compile Include="Commands\DeleteUserCommand.cs" />
     <Compile Include="Commands\LogInCMD.cs" />
     <Compile Include="Commands\NewBookAcceptCMD.cs" />
     <Compile Include="Commands\NewBranchAcceptCMD.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Commands\ViewCommand\AddEditClientUCCommand.cs" />
     <Compile Include="Commands\ViewCommand\AddEditUserUCCommand.cs" />
     <Compile Include="Commands\ViewCommand\AddEditWorkerUCCommand.cs" />
+    <Compile Include="Commands\ViewCommand\EditBookViewCommand.cs" />
     <Compile Include="Commands\ViewCommand\EditUserViewCommand.cs" />
     <Compile Include="Commands\ViewCommand\ReportUCCommand.cs" />
     <Compile Include="Commands\ViewCommand\SellBookUCCommand.cs" />

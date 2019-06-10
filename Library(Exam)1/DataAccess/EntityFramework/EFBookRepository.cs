@@ -16,8 +16,23 @@ namespace Library_Exam_1.DataAccess.EntityFramework
         {
             using (_context = new LibraryDB())
             {
-                _context.Books.Add(entity);
-                _context.SaveChanges();
+                if (entity.Id == 0)
+                {
+                    _context.Books.Add(entity);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    Book book = _context.Books.FirstOrDefault(x => x.Id == entity.Id);
+                    book.Name = entity.Name;
+                    book.PurchasePrice = entity.PurchasePrice;
+                    book.Quantity = entity.Quantity;
+                    book.SalePrice = entity.SalePrice;
+                    book.Author = entity.Author;
+                    book.BranchId = entity.Branch.Id;
+                    _context.Entry(book.Branch).State = System.Data.Entity.EntityState.Unchanged;
+                    _context.SaveChanges();
+                }
             }
         }
 
@@ -26,7 +41,7 @@ namespace Library_Exam_1.DataAccess.EntityFramework
             IEnumerable<Book> books;
             using (_context = new LibraryDB())
             {
-                books = new List<Book>( _context.Books.Include("Branch"));
+                books = new List<Book>(_context.Books.Include("Branch"));
             }
             return books;
         }
@@ -45,7 +60,8 @@ namespace Library_Exam_1.DataAccess.EntityFramework
         {
             using (_context = new LibraryDB())
             {
-                _context.Books.Remove(entity);
+                Book book = _context.Books.FirstOrDefault(x => x.Id == entity.Id);
+                _context.Books.Remove(book);
                 _context.SaveChanges();
             }
         }

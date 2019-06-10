@@ -19,18 +19,41 @@
             </DataGrid.Resources>
         </DataGrid>
 
-
         <DockPanel Grid.Row="1">
+            <Button HorizontalAlignment="Right" Height="40" Width="120" DockPanel.Dock="Right" BorderThickness="0" BorderBrush="#60444444" IsEnabled="True" Background="#60444444">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border VerticalAlignment="Stretch" BorderThickness="5" CornerRadius="10" BorderBrush="#FF333337" Height="auto">
+                            <Button Command="{Binding DeleteUserCommand}" FontSize="22" BorderThickness="0" Background="#FF333337" Foreground="#FFC2C2C2" FontFamily="Century Gothic" FontWeight="Bold" Content="Delete">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding SelectedIndex, ElementName=UsersDataGrid, UpdateSourceTrigger=PropertyChanged}" Value="-1">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedIndex, ElementName=UsersDataGrid, UpdateSourceTrigger=PropertyChanged}" Value="0">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             <Button HorizontalAlignment="Right" Height="40" Width="120"  BorderThickness="0" BorderBrush="#60444444" IsEnabled="True" Background="#60444444">
                 <Button.Template>
                     <ControlTemplate>
                         <Border VerticalAlignment="Stretch" BorderThickness="5" CornerRadius="10" BorderBrush="#FF333337" Height="auto">
                             <Button Command="{Binding EditUserViewCommand}"  FontSize="22" BorderThickness="0" Background="#FF333337" Foreground="#FFC2C2C2" FontFamily="Century Gothic" FontWeight="Bold" Content="Edit">
-
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding SelectedIndex, ElementName=UsersDataGrid, UpdateSourceTrigger=PropertyChanged}" Value="-1">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding SelectedIndex, ElementName=UsersDataGrid, UpdateSourceTrigger=PropertyChanged}" Value="0">
                                                 <Setter Property="IsEnabled" Value="False"/>
                                             </DataTrigger>
                                         </Style.Triggers>

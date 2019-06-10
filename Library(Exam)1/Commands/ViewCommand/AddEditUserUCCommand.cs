@@ -27,6 +27,7 @@ namespace Library_Exam_1.Commands.ViewCommand
         public void Execute(object parameter)
         {
             int choice = Convert.ToInt32(parameter);
+            MainVM.NewUser = new Library_EXAM_.Entities.User();
             if (choice == 1)
             {
                 MainVM.MainBorder.Child = new AddUserUC();

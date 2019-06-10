@@ -17,8 +17,23 @@ namespace Library_Exam_1.DataAccess.EntityFramework
         {
             using (_context = new LibraryDB())
             {
-                _context.Users.Add(entity);
-                _context.SaveChanges();
+                if (entity.Id == 0)
+                {
+                    _context.Users.Add(entity);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    User user = _context.Users.FirstOrDefault(x => x.Id == entity.Id);
+                    user.Username = entity.Username;
+                    user.Password = entity.Password;
+                    user.CanRent = entity.CanRent;
+                    user.CanCreateUser = entity.CanCreateUser;
+                    user.CanCreateClient = entity.CanCreateClient;
+                    user.CanCreateBranch = entity.CanCreateBranch;
+                    user.CanCreateBook = entity.CanCreateBook;
+                    _context.SaveChanges();
+                }
             }
         }
 
@@ -27,7 +42,7 @@ namespace Library_Exam_1.DataAccess.EntityFramework
             IEnumerable<User> users;
             using (_context = new LibraryDB())
             {
-                users = new List<User>( _context.Users);
+                users = new List<User>(_context.Users);
             }
             return users;
         }
@@ -46,7 +61,8 @@ namespace Library_Exam_1.DataAccess.EntityFramework
         {
             using (_context = new LibraryDB())
             {
-                _context.Users.Remove(entity);
+                User user = _context.Users.FirstOrDefault(x => x.Id == entity.Id);
+                _context.Users.Remove(user);
                 _context.SaveChanges();
             }
         }

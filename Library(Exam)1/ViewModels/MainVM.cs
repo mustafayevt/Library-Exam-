@@ -54,6 +54,9 @@ namespace Library_Exam_1.ViewModels
             NewUserAcceptCMD = new NewUserAcceptCMD(this);
 
             EditUserViewCommand = new EditUserViewCommand(this);
+            DeleteUserCommand = new DeleteUserCommand(this);
+            EditBookViewCommand = new EditBookViewCommand(this);
+            DeleteBookCommand = new DeleteBookCommand(this);
 
             MainBorder = UCBorder;
             #endregion
@@ -66,7 +69,7 @@ namespace Library_Exam_1.ViewModels
         public ObservableCollection<User> Users
         {
             get { return users; }
-            set { users = value; }
+            set { users = value; OnPropertyChanged(nameof(Users)); }
         }
         public User CurrentUser { get; private set; }
         private User _user;
@@ -163,6 +166,9 @@ namespace Library_Exam_1.ViewModels
         #endregion
 
         public NewUserAcceptCMD NewUserAcceptCMD { get; set; }
+        public DeleteUserCommand DeleteUserCommand { get; set; }
+        public DeleteBookCommand DeleteBookCommand { get; set; }
+        public EditBookViewCommand EditBookViewCommand { get; set; }
         public AddEditBookUCCommand AddEditBookUCCommand { get; set; }
         public AddEditBranchUCCommand AddEditBranchUCCommand { get; set; }
         public AddEditClientUCCommand AddEditClientUCCommand { get; set; }

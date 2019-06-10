@@ -89,28 +89,28 @@
         <UniformGrid Columns="2" Rows="2" Grid.Row="1">
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Name" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                <TextBox   Margin="30,0,0,0" BorderThickness="0" x:Name="NameTxtbx" Text="{Binding NewBook.Name,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <TextBox   Margin="30,0,0,0" BorderThickness="0" x:Name="NameTxtbx" Text="{Binding NewBook.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
                 <Separator BorderBrush="#60444444" Margin="30,0"/>
                 <TextBlock Text="Author" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                <TextBox   Margin="30,0,0,0" BorderThickness="0" x:Name="UsernameTxtbx" Text="{Binding NewBook.Author,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <TextBox   Margin="30,0,0,0" BorderThickness="0" x:Name="UsernameTxtbx" Text="{Binding NewBook.Author,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
                 <Separator BorderBrush="#60444444" Margin="30,0"/>
             </StackPanel>
 
             <StackPanel VerticalAlignment="Center">
                 <TextBlock Text="Purchase Price" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                <TextBox  x:Name="PurchasePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.PurchasePrice,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <TextBox  x:Name="PurchasePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.PurchasePrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
                     <Separator BorderBrush="#60444444" Margin="30,0"/>
                 <TextBlock Text="Sale Price" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                <TextBox x:Name="SalePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.SalePrice,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <TextBox x:Name="SalePriceTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.SalePrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
                 <Separator BorderBrush="#60444444" Margin="30,0"/>
             </StackPanel>
 
             <StackPanel VerticalAlignment="Top">
                 <TextBlock Text="Quantity" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                <TextBox x:Name="QuantityTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.Quantity,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
+                <TextBox x:Name="QuantityTxtbx" Margin="30,0,0,0" BorderThickness="0" Text="{Binding NewBook.Quantity,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="White" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="24"/>
                 <Separator BorderBrush="#60444444" Margin="30,0"/>
                 <TextBlock Text="Branch" Background="#FF24253A"  FontFamily="Century Gothic" FontSize="34" Foreground="#FF747474" Margin="30,0,0,0"/>
-                <ComboBox x:Name="BranchCmbx" Height="20" Margin="30,00,30,10" DisplayMemberPath="Name" ItemsSource="{Binding Branches,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding NewBook.Branch}">
+                <ComboBox x:Name="BranchCmbx" Height="20" Margin="30,00,30,10" DisplayMemberPath="Name" ItemsSource="{Binding Branches,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding NewBook.Branch,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True">
                 </ComboBox>
                 <Separator BorderBrush="#60444444" Margin="30,0"/>
             </StackPanel>
